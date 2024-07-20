@@ -7,6 +7,7 @@ import App from './App.tsx';
 import './scss/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Home from './pages/Home.tsx';
 
 const router = createHashRouter([
     {
@@ -16,7 +17,7 @@ const router = createHashRouter([
         children: [
             {
                 index: true,
-                element: <div>HomePage</div>,
+                element: <Home />,
             },
             {
                 path: '/categories',

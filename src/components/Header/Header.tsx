@@ -21,7 +21,7 @@ const Header = () => {
 
     return (
         <header>
-            <nav className="navbar navbar-expand-lg">
+            <nav className="navbar navbar-expand-lg shadow">
                 <div className="container-lg">
                     <a className="navbar-brand" href="#">
                         SEREBRO 39
@@ -53,17 +53,6 @@ const Header = () => {
                                     Главная
                                 </Link>
                             </li>
-                            <li
-                                className={
-                                    currentUrl === '/contacts'
-                                        ? 'nav-item active'
-                                        : 'nav-item'
-                                }
-                            >
-                                <Link className="nav-link" to="/contacts">
-                                    Контакты
-                                </Link>
-                            </li>
                             <li className="nav-item dropdown">
                                 <Link
                                     className="nav-link dropdown-toggle"
@@ -86,6 +75,17 @@ const Header = () => {
                                         </li>
                                     ))}
                                 </ul>
+                            </li>
+                            <li
+                                className={
+                                    currentUrl === '/contacts'
+                                        ? 'nav-item active'
+                                        : 'nav-item'
+                                }
+                            >
+                                <Link className="nav-link" to="/contacts">
+                                    Контакты
+                                </Link>
                             </li>
                         </ul>
 
