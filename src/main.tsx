@@ -7,6 +7,7 @@ import App from './App.tsx';
 import './scss/index.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from './pages/Home/Home.tsx';
+import Contacts from './pages/Contacts/Contacts.tsx';
 
 const router = createHashRouter([
     {
@@ -28,7 +29,7 @@ const router = createHashRouter([
             },
             {
                 path: '/contacts',
-                element: <div>ContactsPage</div>,
+                element: <Contacts />,
             },
             {
                 path: '/product/:id',
