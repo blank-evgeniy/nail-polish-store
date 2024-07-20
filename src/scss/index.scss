@@ -3,9 +3,4 @@
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
-/*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
-
-.btn-secondary:hover {
-    color: #000;
-    background-color: $primary;
-}
+@import './button';

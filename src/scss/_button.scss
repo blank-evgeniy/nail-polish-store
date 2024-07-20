@@ -1,0 +1,11 @@
+.btn-secondary:hover {
+    color: #000;
+    background-color: $primary;
+}
+
+.btn-secondary:active,
+.btn-secondary:focus,
+.btn-secondary:visited {
+    color: #000 !important;
+    background-color: #dac8de !important;
+}
