@@ -8,6 +8,7 @@ import './scss/index.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from './pages/Home/Home.tsx';
 import Contacts from './pages/Contacts/Contacts.tsx';
+import Categories from './pages/Categories/Categories.tsx';
 
 const router = createHashRouter([
     {
@@ -21,7 +22,7 @@ const router = createHashRouter([
             },
             {
                 path: '/categories',
-                element: <div>CategoriesPage</div>,
+                element: <Categories />,
             },
             {
                 path: '/categories/:category',
