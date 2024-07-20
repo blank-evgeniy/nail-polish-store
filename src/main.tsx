@@ -5,9 +5,8 @@ import { createHashRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 
 import './scss/index.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Home from './pages/Home.tsx';
+import Home from './pages/Home/Home.tsx';
 
 const router = createHashRouter([
     {

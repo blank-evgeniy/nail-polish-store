@@ -1,10 +1,11 @@
-body,
-html {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
+@import './variables';
+@import './reset';
 
-main {
-    height: calc(100vh - 80px);
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+/*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
+
+.btn-secondary:hover {
+    color: #000;
+    background-color: $primary;
 }
