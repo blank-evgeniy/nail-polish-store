@@ -21,7 +21,7 @@ const Header = () => {
 
     return (
         <header>
-            <nav className="navbar navbar-expand-lg shadow">
+            <nav className="navbar navbar-expand-lg bg-primary shadow">
                 <div className="container-lg">
                     <a className="navbar-brand" href="#">
                         SEREBRO 39
