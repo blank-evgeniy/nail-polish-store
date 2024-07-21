@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -11,9 +11,17 @@ const Home = () => {
             <h2 className="fs-3">Добро пожаловать!</h2>
             <h1 className="my-3 text-center">Магазин гель-лака для ногтей</h1>
             <p className="fs-4 mt-2 text-center">
-                В нашем ассортименте Вы найдёте полную продуктовую линейку для
+                Мы официальный представитель ТМ "Serebro" в Калининграде. В
+                нашем ассортименте Вы найдёте полную продуктовую линейку для
                 nail-мастера, широчайшую палитру классических и авторских
                 оттенков, а так же многочисленные сезонные коллекции.
+            </p>
+            <p className="fs-4 mt-2 text-center">
+                На нашем сайте вы можете ознакомиться с продукцией, чтобы{' '}
+                <Link to="/contacts" className="link-secondary">
+                    связаться с нами
+                </Link>{' '}
+                и заказать товар.
             </p>
             <button
                 onClick={() => navigate('/categories')}

@@ -15,7 +15,10 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ id, title, image }) => {
 
     return (
         <div className="card rounded-4 mb-5 bg-primary">
-            <Link to={`/categories/${id}`} className="link-secondary">
+            <Link
+                to={`/categories/${id}`}
+                className="link-secondary link-underline-opacity-0"
+            >
                 {!imageNotFound ? (
                     <img
                         src={`/categories/${image}`}

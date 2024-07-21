@@ -10,7 +10,7 @@ const Header = () => {
         <header>
             <nav className="navbar navbar-expand-lg bg-primary shadow">
                 <div className="container-lg">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand fw-bold" href="#">
                         SEREBRO 39
                     </a>
                     <button
@@ -28,11 +28,11 @@ const Header = () => {
                         className="collapse navbar-collapse"
                         id="navbarSupportedContent"
                     >
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
                             <li
                                 className={
                                     currentUrl === '/'
-                                        ? 'nav-item active'
+                                        ? 'nav-item fw-semibold'
                                         : 'nav-item'
                                 }
                             >
@@ -59,6 +59,9 @@ const Header = () => {
                                             Все категории
                                         </Link>
                                     </li>
+                                    <li>
+                                        <hr className="dropdown-divider" />
+                                    </li>
                                     {data &&
                                         data.map((category) => (
                                             <li key={category.id}>
@@ -75,7 +78,7 @@ const Header = () => {
                             <li
                                 className={
                                     currentUrl === '/contacts'
-                                        ? 'nav-item active'
+                                        ? 'nav-item fw-semibold'
                                         : 'nav-item'
                                 }
                             >
@@ -85,7 +88,7 @@ const Header = () => {
                             </li>
                         </ul>
 
-                        <Link className="nav-icon nav-link" to="/basket">
+                        <Link className="nav-icon nav-link fs-5" to="/basket">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="32"
