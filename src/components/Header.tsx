@@ -1,22 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-
-const categories = [
-    {
-        title: 'Все категории',
-        link: '/categories',
-    },
-    {
-        title: 'Топы',
-        link: '/categories/topy',
-    },
-    {
-        title: 'Базы',
-        link: '/categories/basy',
-    },
-];
+import CategoriesData from '../types/CategoriesData';
+import { useGetDocs } from '../hooks/useGetData';
 
 const Header = () => {
     const currentUrl = useLocation().pathname;
+    const { data } = useGetDocs<CategoriesData>('sections');
 
     return (
         <header>
@@ -63,16 +51,25 @@ const Header = () => {
                                     Каталог товаров
                                 </Link>
                                 <ul className="dropdown-menu">
-                                    {categories.map((category) => (
-                                        <li key={category.link}>
-                                            <Link
-                                                className="dropdown-item"
-                                                to={category.link}
-                                            >
-                                                {category.title}
-                                            </Link>
-                                        </li>
-                                    ))}
+                                    <li key="all">
+                                        <Link
+                                            className="dropdown-item"
+                                            to={'/categories'}
+                                        >
+                                            Все категории
+                                        </Link>
+                                    </li>
+                                    {data &&
+                                        data.map((category) => (
+                                            <li key={category.id}>
+                                                <Link
+                                                    className="dropdown-item"
+                                                    to={`/categories/${category.id}`}
+                                                >
+                                                    {category.title}
+                                                </Link>
+                                            </li>
+                                        ))}
                                 </ul>
                             </li>
                             <li
