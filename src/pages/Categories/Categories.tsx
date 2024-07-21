@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { useGetDocs } from '../../hooks/useGetData';
+import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
 interface CategoriesData {
     title: string;
@@ -26,31 +26,15 @@ const Categories = () => {
             ) : (
                 <div className="row">
                     {data.map((category) => (
-                        <div key={category.id} className="col-md-3">
-                            <div
-                                className="card mb-4 flex-d flex-column align-items-center"
-                                style={{ width: '240px' }}
-                            >
-                                <img
-                                    src="basy.jpg"
-                                    className="mt-3"
-                                    style={{
-                                        width: '200px',
-                                        height: '200px',
-                                    }}
-                                ></img>
-                                <div className="card-body">
-                                    <h5 className="card-title text-center">
-                                        {category.title}
-                                    </h5>
-                                    <Link
-                                        to={`/categories/${category.id}`}
-                                        className="btn btn-primary"
-                                    >
-                                        Перейти к категории
-                                    </Link>
-                                </div>
-                            </div>
+                        <div
+                            key={category.id}
+                            className="col-xxl-2 col-xl-3 col-sm-4 col-6 d-flex align-items-stretch"
+                        >
+                            <CategoryCard
+                                id={category.id}
+                                title={category.title}
+                                image={category.image}
+                            />
                         </div>
                     ))}
                 </div>
