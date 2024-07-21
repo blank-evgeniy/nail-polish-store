@@ -1,5 +1,5 @@
-import { useGetDocs } from '../../hooks/useGetData';
-import CategoryCard from '../../components/CategoryCard/CategoryCard';
+import { useGetDocs } from '../hooks/useGetData';
+import CategoryCard from '../components/CategoryCard';
 
 interface CategoriesData {
     title: string;

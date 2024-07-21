@@ -6,9 +6,9 @@ import App from './App.tsx';
 
 import './scss/index.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Home from './pages/Home/Home.tsx';
-import Contacts from './pages/Contacts/Contacts.tsx';
-import Categories from './pages/Categories/Categories.tsx';
+import Home from './pages/Home.tsx';
+import Contacts from './pages/Contacts.tsx';
+import Categories from './pages/Categories.tsx';
 
 const router = createHashRouter([
     {
