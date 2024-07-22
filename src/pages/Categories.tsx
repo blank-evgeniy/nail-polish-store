@@ -1,5 +1,6 @@
 import { useGetDocs } from '../hooks/useGetData';
 import CategoryCard from '../components/CategoryCard';
+import { CategoryCardsSkeleton } from '../components/Skeleton';
 
 interface CategoriesData {
     title: string;
@@ -14,10 +15,8 @@ const Categories = () => {
         <div className="container-lg">
             <h1 className="text-center my-5">Категории товаров</h1>
             {isLoading ? (
-                <div className="d-flex justify-content-center">
-                    <div className="spinner-border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
+                <div className="row">
+                    <CategoryCardsSkeleton />
                 </div>
             ) : error ? (
                 <p>{error}</p>
