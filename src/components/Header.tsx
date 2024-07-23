@@ -1,10 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import CategoriesData from '../types/CategoriesData';
-import { useGetDocs } from '../hooks/useGetData';
+import CategoriesList from './CategoriesList';
 
 const Header = () => {
     const currentUrl = useLocation().pathname;
-    const { data } = useGetDocs<CategoriesData>('sections');
 
     return (
         <header>
@@ -62,17 +60,7 @@ const Header = () => {
                                     <li>
                                         <hr className="dropdown-divider" />
                                     </li>
-                                    {data &&
-                                        data.map((category) => (
-                                            <li key={category.id}>
-                                                <Link
-                                                    className="dropdown-item"
-                                                    to={`/categories/${category.id}`}
-                                                >
-                                                    {category.title}
-                                                </Link>
-                                            </li>
-                                        ))}
+                                    <CategoriesList />
                                 </ul>
                             </li>
                             <li

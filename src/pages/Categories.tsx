@@ -1,6 +1,7 @@
-import { useGetDocs } from '../hooks/useGetData';
+import { getDocsQuery } from '../api/getData';
 import CategoryCard from '../components/CategoryCard';
 import { CategoryCardsSkeleton } from '../components/Skeleton';
+import { useQuery } from 'react-query';
 
 interface CategoriesData {
     title: string;
@@ -9,7 +10,10 @@ interface CategoriesData {
 }
 
 const Categories = () => {
-    const { data, isLoading, error } = useGetDocs<CategoriesData>('sections');
+    const { isLoading, isError, data } = useQuery(
+        'categories',
+        getDocsQuery<CategoriesData>
+    );
 
     return (
         <div className="container-xl">
@@ -17,8 +21,8 @@ const Categories = () => {
             <div className="row">
                 {isLoading ? (
                     <CategoryCardsSkeleton />
-                ) : error ? (
-                    <p>{error}</p>
+                ) : isError ? (
+                    <p>Произошла непредвиденная ошибка</p>
                 ) : !data ? (
                     <p>Товары не найдены</p>
                 ) : (

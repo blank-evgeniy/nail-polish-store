@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import App from './App.tsx';
-
-import './scss/index.scss';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from './pages/Home.tsx';
 import Contacts from './pages/Contacts.tsx';
 import Categories from './pages/Categories.tsx';
+
+import './scss/index.scss';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+        },
+    },
+});
 
 const router = createHashRouter([
     {
@@ -46,6 +55,8 @@ const router = createHashRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+        </QueryClientProvider>
     </React.StrictMode>
 );
