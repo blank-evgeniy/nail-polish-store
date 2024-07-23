@@ -1,6 +1,5 @@
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
-import Loading from './components/Loading';
 
 import App from './App';
 const Home = lazy(() => import('./pages/Home'));
@@ -42,11 +41,7 @@ const router = createHashRouter([
 ]);
 
 const AppRouter = () => {
-    return (
-        <Suspense fallback={<Loading />}>
-            <RouterProvider router={router} />
-        </Suspense>
-    );
+    return <RouterProvider router={router} />;
 };
 
 export default AppRouter;
