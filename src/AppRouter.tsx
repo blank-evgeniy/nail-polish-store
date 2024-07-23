@@ -1,0 +1,52 @@
+import { Suspense, lazy } from 'react';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
+import Loading from './components/Loading';
+
+import App from './App';
+const Home = lazy(() => import('./pages/Home'));
+const Categories = lazy(() => import('./pages/Categories'));
+const Contacts = lazy(() => import('./pages/Contacts'));
+
+const router = createHashRouter([
+    {
+        path: '/',
+        element: <App />,
+        errorElement: <div>ErrorPage</div>,
+        children: [
+            {
+                index: true,
+                element: <Home />,
+            },
+            {
+                path: '/categories',
+                element: <Categories />,
+            },
+            {
+                path: '/categories/:category',
+                element: <div>CatalogPage</div>,
+            },
+            {
+                path: '/contacts',
+                element: <Contacts />,
+            },
+            {
+                path: '/product/:id',
+                element: <div>ProductPage</div>,
+            },
+            {
+                path: '/basket',
+                element: <div>BasketPage</div>,
+            },
+        ],
+    },
+]);
+
+const AppRouter = () => {
+    return (
+        <Suspense fallback={<Loading />}>
+            <RouterProvider router={router} />
+        </Suspense>
+    );
+};
+
+export default AppRouter;
