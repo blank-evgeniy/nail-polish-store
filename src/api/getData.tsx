@@ -8,9 +8,8 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 
-export const getDocsQuery = async <T,>() => {
-    const q = query(collection(db, 'sections')) as Query<T>;
-
+export const getDocsQuery = async <T,>(collectionName: string) => {
+    const q = query(collection(db, collectionName)) as Query<T>;
     const docs = await getDocs(q);
 
     if (docs.empty) {
@@ -29,7 +28,7 @@ export const getDocsQuery = async <T,>() => {
     return newData;
 };
 
-export const useGetDoc = async <T,>(path: string, id: string) => {
+export const getDocQuery = async <T,>(path: string, id: string) => {
     const docRef = doc(db, path, id);
     const document = await getDoc(docRef);
 

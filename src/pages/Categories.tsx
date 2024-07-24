@@ -10,9 +10,8 @@ interface CategoriesData {
 }
 
 const Categories = () => {
-    const { isLoading, isError, data } = useQuery(
-        'categories',
-        getDocsQuery<CategoriesData>
+    const { isLoading, isError, data } = useQuery('categories', () =>
+        getDocsQuery<CategoriesData>('categories-demo')
     );
 
     return (

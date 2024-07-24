@@ -18,7 +18,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ id, title, image }) => {
                 className="link-secondary link-underline-opacity-0"
             >
                 <img
-                    src={`/categories/${image}`}
+                    src={`${image}`}
                     alt={title}
                     className="rounded-top-4 card-img-top"
                 ></img>

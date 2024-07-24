@@ -4,9 +4,8 @@ import CategoriesData from '../types/CategoriesData';
 import { getDocsQuery } from '../api/getData';
 
 const CategoriesList = () => {
-    const { isLoading, isError, data } = useQuery(
-        'categories',
-        getDocsQuery<CategoriesData>
+    const { isLoading, isError, data } = useQuery('categories', () =>
+        getDocsQuery<CategoriesData>('categories-demo')
     );
 
     if (isLoading) {
