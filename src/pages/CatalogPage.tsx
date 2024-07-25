@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard';
 import { getDocQuery } from '../api/getData';
 import CategoriesData from '../types/CategoriesData';
 import { ProductCardsSkeleton } from '../components/Skeleton';
+import FilterForm from '../components/FilterForm';
 
 const CatalogPage = () => {
     const { category } = useParams<string>();
@@ -29,6 +30,9 @@ const CatalogPage = () => {
                     <span className="placeholder col-2"></span>
                 )}
             </h1>
+
+            <FilterForm data={productsData} />
+
             <div className="row">
                 {isLoading && <ProductCardsSkeleton />}
                 {isError && (
