@@ -16,7 +16,10 @@ const ProductCard: React.FC<ProductData> = (props) => {
                 <h6 className="card-title">{props.title}</h6>
                 <p className="card-text">{props.description}</p>
             </div>
-            <ul className="list-group list-group-flush">
+            <ul
+                className="list-group list-group-flush"
+                style={{ fontSize: '0.8rem' }}
+            >
                 {props.color && (
                     <li className="list-group-item">{`Цвет: ${props.color}`}</li>
                 )}

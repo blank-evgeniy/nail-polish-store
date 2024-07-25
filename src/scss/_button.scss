@@ -1,11 +1,11 @@
 .btn-secondary:hover {
     color: #000;
-    background-color: $primary;
+    background-color: inherit;
 }
 
 .btn-secondary:active,
 .btn-secondary:focus,
 .btn-secondary:visited {
     color: #000 !important;
-    background-color: #dac8de !important;
+    background-color: rgb(235, 235, 235) !important;
 }
