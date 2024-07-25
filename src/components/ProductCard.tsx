@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductData from '../types/ProductData';
+import { Link } from 'react-router-dom';
 
 const ProductCard: React.FC<ProductData> = (props) => {
     return (
@@ -31,8 +32,21 @@ const ProductCard: React.FC<ProductData> = (props) => {
                 )}
             </ul>
             <div className="card-body text-center">
-                <p className="card-text fw-bolder fs-5">{`${props.price} руб.`}</p>
-                <button className="btn btn-secondary">В корзину</button>
+                {props.inStock ? (
+                    <>
+                        <p className="card-text fw-bolder fs-5">{`${props.price} руб.`}</p>
+                        <button className="btn btn-secondary">В корзину</button>
+                    </>
+                ) : (
+                    <>
+                        <p className="card-text fw-semibold fs-6">
+                            нет в наличии
+                        </p>
+                        <Link to="/contacts" className="link-secondary">
+                            свяжитесь с нами, чтобы заказать
+                        </Link>{' '}
+                    </>
+                )}
             </div>
         </div>
     );
