@@ -4,23 +4,38 @@ import { getProducts } from '../api/getProducts';
 import ProductCard from '../components/ProductCard';
 import { getDocQuery } from '../api/getData';
 import CategoriesData from '../types/CategoriesData';
+import { ProductCardsSkeleton } from '../components/Skeleton';
 
 const CatalogPage = () => {
     const { category } = useParams<string>();
     const limit = 10;
 
-    const { data: productsData } = useQuery(['products', category], () =>
-        getProducts(limit, category!)
-    );
-
     const { data: categoryData } = useQuery(category!, () =>
         getDocQuery<CategoriesData>('categories-demo', category!)
     );
 
+    const {
+        data: productsData,
+        isLoading,
+        isError,
+    } = useQuery(['products', category], () => getProducts(limit, category!));
+
     return (
         <div className="container-xl">
-            <h1 className="text-center my-5">{categoryData?.title}</h1>
+            <h1 className="text-center my-5">
+                {categoryData ? (
+                    categoryData.title
+                ) : (
+                    <span className="placeholder col-2"></span>
+                )}
+            </h1>
             <div className="row">
+                {isLoading && <ProductCardsSkeleton />}
+                {isError && (
+                    <div className="text-center">
+                        Произошла непредвиденная ошибка
+                    </div>
+                )}
                 {productsData &&
                     productsData.map((product) => (
                         <div
