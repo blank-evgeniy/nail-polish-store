@@ -1,9 +1,14 @@
+import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import CategoriesData from '../types/CategoriesData';
 import { getDocsQuery } from '../api/getData';
 
-const CategoriesList = () => {
+interface CategoriesListProps {
+    onLinkClick: (path: string) => void;
+}
+
+const CategoriesList: React.FC<CategoriesListProps> = ({ onLinkClick }) => {
     const { isLoading, isError, data } = useQuery('categories', () =>
         getDocsQuery<CategoriesData>('categories-demo')
     );
@@ -28,6 +33,10 @@ const CategoriesList = () => {
                         <Link
                             className="dropdown-item"
                             to={`/categories/${category.id}`}
+                            data-bs-dismiss="offcanvas"
+                            onClick={() =>
+                                onLinkClick(`/categories/${category.id}`)
+                            }
                         >
                             {category.title}
                         </Link>
