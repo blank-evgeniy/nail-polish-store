@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductData from '../types/ProductData';
 import SearchInput from './SearchInput';
+import getUniqueValues from '../auxiliary/getUniqueValues';
 
 interface SelectorsFormProps {
     data: ProductData[] | undefined;
@@ -8,19 +9,10 @@ interface SelectorsFormProps {
 
 const FilterForm: React.FC<SelectorsFormProps> = ({ data }) => {
     const volumeValues = data
-        ? data
-              .map((product) => {
-                  return product.volume;
-              })
-              .filter((product, i, ar) => ar.indexOf(product) === i)
+        ? getUniqueValues(data.map((item) => item.volume))
         : [];
-
     const colorValues = data
-        ? data
-              .map((product) => {
-                  return product.color;
-              })
-              .filter((product, i, ar) => ar.indexOf(product) === i)
+        ? getUniqueValues(data.map((item) => item.color))
         : [];
 
     return (
