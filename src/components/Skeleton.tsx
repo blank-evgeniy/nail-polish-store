@@ -27,18 +27,9 @@ export const CategoryCardSkeleton = () => {
 export const CategoryCardsSkeleton = () => {
     return (
         <>
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
-            <CategoryCardSkeleton />
+            {...Array(6)
+                .fill(0)
+                .map(() => <CategoryCardSkeleton />)}
         </>
     );
 };
@@ -96,12 +87,9 @@ export const ProductCardSkeleton = () => {
 export const ProductCardsSkeleton = () => {
     return (
         <>
-            <ProductCardSkeleton />
-            <ProductCardSkeleton />
-            <ProductCardSkeleton />
-            <ProductCardSkeleton />
-            <ProductCardSkeleton />
-            <ProductCardSkeleton />
+            {...Array(6)
+                .fill(0)
+                .map(() => <ProductCardSkeleton />)}
         </>
     );
 };
