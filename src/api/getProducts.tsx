@@ -1,19 +1,11 @@
-import {
-    collection,
-    getDocs,
-    limit,
-    Query,
-    query,
-    where,
-} from 'firebase/firestore';
+import { collection, getDocs, Query, query, where } from 'firebase/firestore';
 import ProductData from '../types/ProductData';
 import { db } from '../firebaseConfig';
 
-export const getProducts = async (count: number, section: string) => {
+export const getProducts = async (section: string) => {
     const q = query(
         collection(db, 'products-demo'),
-        where('category', '==', section),
-        limit(count)
+        where('category', '==', section)
     ) as Query<ProductData>;
 
     const docs = await getDocs(q);

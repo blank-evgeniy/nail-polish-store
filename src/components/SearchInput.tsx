@@ -2,21 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { useAppDispatch } from '../hooks/redux';
 import { filterSlice } from '../store/reducers/filterSlice';
 import { useDebounce } from 'use-debounce';
+import { useLocation } from 'react-router-dom';
 
 const SearchInput = () => {
-    const [searchValue, setSarchValue] = useState<string>('');
+    const location = useLocation();
+
+    const [searchValue, setSearchValue] = useState<string>('');
     const [debouncedValue] = useDebounce(searchValue, 1000);
 
     const { searchValueUpdate } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSarchValue(event.target.value);
-    };
+    useEffect(() => {
+        setSearchValue('');
+    }, [location]);
 
     useEffect(() => {
         dispatch(searchValueUpdate(debouncedValue));
     }, [debouncedValue]);
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchValue(event.target.value);
+    };
 
     return (
         <div className="row mb-3">

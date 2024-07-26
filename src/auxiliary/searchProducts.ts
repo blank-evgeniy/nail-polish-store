@@ -1,10 +1,13 @@
 import ProductData from '../types/ProductData';
 
-const search = (query: string, data: ProductData[] | undefined | null) => {
+const searchProducts = (
+    query: string,
+    data: ProductData[] | undefined | null
+) => {
     if (!data) return [];
     return data.filter((item) =>
         item.title.toLowerCase().includes(query.toLowerCase())
     );
 };
 
-export default search;
+export default searchProducts;
