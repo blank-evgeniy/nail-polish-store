@@ -6,8 +6,11 @@ import { getDocQuery } from '../api/getData';
 import CategoriesData from '../types/CategoriesData';
 import { ProductCardsSkeleton } from '../components/Skeleton';
 import FilterForm from '../components/FilterForm';
+import { useAppSelector } from '../hooks/redux';
+import search from '../auxiliary/search';
 
 const CatalogPage = () => {
+    const { searchValue } = useAppSelector((state) => state.filter);
     const { category } = useParams<string>();
     const limit = 10;
 
@@ -20,6 +23,8 @@ const CatalogPage = () => {
         isLoading,
         isError,
     } = useQuery(['products', category], () => getProducts(limit, category!));
+
+    const filteredCharacters = search(searchValue, productsData);
 
     return (
         <div className="container-xl">
@@ -41,7 +46,7 @@ const CatalogPage = () => {
                     </div>
                 )}
                 {productsData &&
-                    productsData.map((product) => (
+                    filteredCharacters.map((product) => (
                         <div
                             key={product.id}
                             className="col-xxl-2 col-xl-3 col-sm-4 col-6"

@@ -1,4 +1,23 @@
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch } from '../hooks/redux';
+import { filterSlice } from '../store/reducers/filterSlice';
+import { useDebounce } from 'use-debounce';
+
 const SearchInput = () => {
+    const [searchValue, setSarchValue] = useState<string>('');
+    const [debouncedValue] = useDebounce(searchValue, 1000);
+
+    const { searchValueUpdate } = filterSlice.actions;
+    const dispatch = useAppDispatch();
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSarchValue(event.target.value);
+    };
+
+    useEffect(() => {
+        dispatch(searchValueUpdate(debouncedValue));
+    }, [debouncedValue]);
+
     return (
         <div className="row mb-3">
             <div className="col">
@@ -22,6 +41,8 @@ const SearchInput = () => {
                         placeholder="Введите название продукта..."
                         aria-label="Поиск"
                         ria-describedby="search-btn"
+                        value={searchValue}
+                        onChange={(e) => handleInputChange(e)}
                     />
                 </div>
             </div>

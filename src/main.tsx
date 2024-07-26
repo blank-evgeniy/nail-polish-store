@@ -4,6 +4,8 @@ import AppRouter from './AppRouter';
 
 import './scss/index.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -15,6 +17,8 @@ const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
-        <AppRouter />
+        <Provider store={store}>
+            <AppRouter />
+        </Provider>
     </QueryClientProvider>
 );
