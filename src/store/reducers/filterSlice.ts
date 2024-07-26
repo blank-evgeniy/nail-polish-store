@@ -2,14 +2,14 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface FilterState {
     searchValue: string;
-    volumeFilter: number | null;
+    volumeFilter: string;
     colorFilter: string;
 }
 
 const initialState: FilterState = {
     searchValue: '',
-    volumeFilter: null,
-    colorFilter: '',
+    volumeFilter: 'DEFAULT',
+    colorFilter: 'DEFAULT',
 };
 
 export const filterSlice = createSlice({
@@ -19,7 +19,7 @@ export const filterSlice = createSlice({
         searchValueUpdate(state, action: PayloadAction<string>) {
             state.searchValue = action.payload;
         },
-        volumeFilterUpdate(state, action: PayloadAction<number | null>) {
+        volumeFilterUpdate(state, action: PayloadAction<string>) {
             state.volumeFilter = action.payload;
         },
         colorFilterUpdate(state, action: PayloadAction<string>) {

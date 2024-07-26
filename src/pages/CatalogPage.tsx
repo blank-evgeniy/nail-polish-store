@@ -6,13 +6,30 @@ import { getDocQuery } from '../api/getData';
 import CategoriesData from '../types/CategoriesData';
 import { ProductCardsSkeleton } from '../components/Skeleton';
 import FilterForm from '../components/FilterForm';
-import { useAppSelector } from '../hooks/redux';
-import search from '../auxiliary/search';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import searchProducts from '../auxiliary/searchProducts';
+import filterProducts from '../auxiliary/filterProducts';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { filterSlice } from '../store/reducers/filterSlice';
 
 const CatalogPage = () => {
-    const { searchValue } = useAppSelector((state) => state.filter);
+    const { searchValue, volumeFilter, colorFilter } = useAppSelector(
+        (state) => state.filter
+    );
+
     const { category } = useParams<string>();
-    const limit = 10;
+    const location = useLocation();
+
+    const { volumeFilterUpdate, colorFilterUpdate, searchValueUpdate } =
+        filterSlice.actions;
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(volumeFilterUpdate('DEFAULT'));
+        dispatch(colorFilterUpdate('DEFAULT'));
+        dispatch(searchValueUpdate(''));
+    }, [location]);
 
     const { data: categoryData } = useQuery(category!, () =>
         getDocQuery<CategoriesData>('categories-demo', category!)
@@ -22,9 +39,13 @@ const CatalogPage = () => {
         data: productsData,
         isLoading,
         isError,
-    } = useQuery(['products', category], () => getProducts(limit, category!));
+    } = useQuery(['products', category], () => getProducts(category!));
 
-    const filteredCharacters = search(searchValue, productsData);
+    const filteredProducts = filterProducts(
+        searchProducts(searchValue, productsData),
+        volumeFilter,
+        colorFilter
+    );
 
     return (
         <div className="container-xl">
@@ -46,7 +67,7 @@ const CatalogPage = () => {
                     </div>
                 )}
                 {productsData &&
-                    filteredCharacters.map((product) => (
+                    filteredProducts.map((product) => (
                         <div
                             key={product.id}
                             className="col-xxl-2 col-xl-3 col-sm-4 col-6"
