@@ -13,7 +13,7 @@ const FilterForm: React.FC<SelectorsFormProps> = ({ data }) => {
     const { volumeFilter, colorFilter } = useAppSelector(
         (state) => state.filter
     );
-    const { volumeFilterUpdate, colorFilterUpdate } = filterSlice.actions;
+    const { updateVolumeFilter, updateColorFilter } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
     const volumeValues = data
@@ -35,7 +35,7 @@ const FilterForm: React.FC<SelectorsFormProps> = ({ data }) => {
                         aria-label="Объём лака"
                         value={volumeFilter}
                         onChange={(event) =>
-                            dispatch(volumeFilterUpdate(event.target.value))
+                            dispatch(updateVolumeFilter(event.target.value))
                         }
                     >
                         <option value="DEFAULT">Все</option>
@@ -53,7 +53,7 @@ const FilterForm: React.FC<SelectorsFormProps> = ({ data }) => {
                         aria-label="Цвет лака"
                         value={colorFilter}
                         onChange={(event) =>
-                            dispatch(colorFilterUpdate(event.target.value))
+                            dispatch(updateColorFilter(event.target.value))
                         }
                     >
                         <option value="DEFAULT">Все</option>

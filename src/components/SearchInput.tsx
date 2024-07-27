@@ -10,7 +10,7 @@ const SearchInput = () => {
     const [searchValue, setSearchValue] = useState<string>('');
     const [debouncedValue] = useDebounce(searchValue, 1000);
 
-    const { searchValueUpdate } = filterSlice.actions;
+    const { updateSearchValue } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const SearchInput = () => {
     }, [location]);
 
     useEffect(() => {
-        dispatch(searchValueUpdate(debouncedValue));
+        dispatch(updateSearchValue(debouncedValue));
     }, [debouncedValue]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

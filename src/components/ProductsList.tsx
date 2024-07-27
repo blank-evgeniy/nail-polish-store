@@ -24,8 +24,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
     const { searchValue, volumeFilter, colorFilter } = useAppSelector(
         (state) => state.filter
     );
-    const { volumeFilterUpdate, colorFilterUpdate, searchValueUpdate } =
-        filterSlice.actions;
+    const { resetFilters } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
     const filteredProducts = filterProducts(
@@ -35,9 +34,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
     );
 
     useEffect(() => {
-        dispatch(volumeFilterUpdate('DEFAULT'));
-        dispatch(colorFilterUpdate('DEFAULT'));
-        dispatch(searchValueUpdate(''));
+        dispatch(resetFilters());
     }, [location]);
 
     return (

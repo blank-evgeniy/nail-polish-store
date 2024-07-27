@@ -16,15 +16,16 @@ export const filterSlice = createSlice({
     name: 'filter',
     initialState,
     reducers: {
-        searchValueUpdate(state, action: PayloadAction<string>) {
+        updateSearchValue(state, action: PayloadAction<string>) {
             state.searchValue = action.payload;
         },
-        volumeFilterUpdate(state, action: PayloadAction<string>) {
+        updateVolumeFilter(state, action: PayloadAction<string>) {
             state.volumeFilter = action.payload;
         },
-        colorFilterUpdate(state, action: PayloadAction<string>) {
+        updateColorFilter(state, action: PayloadAction<string>) {
             state.colorFilter = action.payload;
         },
+        resetFilters: () => initialState,
     },
 });
 
