@@ -7,6 +7,8 @@ import ProductCard from './ProductCard';
 import { useLocation } from 'react-router-dom';
 import { filterSlice } from '../store/reducers/filterSlice';
 import ProductData from '../types/ProductData';
+import Pagination from './Pagination';
+import { pagingSlice } from '../store/reducers/pagingSlice';
 
 interface ProductsListProps {
     productsData: ProductData[] | undefined;
@@ -19,11 +21,14 @@ const ProductsList: React.FC<ProductsListProps> = ({
     isError,
     isLoading,
 }) => {
+    const productsOnPage = 12;
     const location = useLocation();
 
     const { searchValue, volumeFilter, colorFilter } = useAppSelector(
         (state) => state.filter
     );
+    const { currentPage } = useAppSelector((state) => state.paging);
+    const { setPrevPage, setNextPage, setPage } = pagingSlice.actions;
     const { resetFilters } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
@@ -35,6 +40,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
 
     useEffect(() => {
         dispatch(resetFilters());
+        dispatch(setPage(1));
     }, [location]);
 
     return (
@@ -46,14 +52,26 @@ const ProductsList: React.FC<ProductsListProps> = ({
                 </div>
             )}
             {productsData &&
-                filteredProducts.map((product) => (
-                    <div
-                        key={product.id}
-                        className="col-xxl-2 col-xl-3 col-sm-4 col-6"
-                    >
-                        <ProductCard {...product} key={product.id} />
-                    </div>
-                ))}
+                filteredProducts
+                    .slice(
+                        (currentPage - 1) * productsOnPage,
+                        currentPage * productsOnPage
+                    )
+                    .map((product) => (
+                        <div
+                            key={product.id}
+                            className="col-xxl-2 col-xl-3 col-sm-4 col-6"
+                        >
+                            <ProductCard {...product} key={product.id} />
+                        </div>
+                    ))}
+            <Pagination
+                pagesCount={Math.ceil(filteredProducts.length / productsOnPage)}
+                currentPage={currentPage}
+                onClickNext={() => dispatch(setNextPage())}
+                onClickPrev={() => dispatch(setPrevPage())}
+                onClickNumber={(number) => dispatch(setPage(number))}
+            />
         </div>
     );
 };

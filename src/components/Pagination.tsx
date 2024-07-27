@@ -3,9 +3,18 @@ import React from 'react';
 interface PaginationProps {
     pagesCount: number;
     currentPage: number;
+    onClickNext: () => void;
+    onClickPrev: () => void;
+    onClickNumber: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ pagesCount, currentPage }) => {
+const Pagination: React.FC<PaginationProps> = ({
+    pagesCount,
+    currentPage,
+    onClickNext,
+    onClickPrev,
+    onClickNumber,
+}) => {
     if (pagesCount === 1) return <></>;
 
     return (
@@ -16,9 +25,12 @@ const Pagination: React.FC<PaginationProps> = ({ pagesCount, currentPage }) => {
                         currentPage === 1 ? 'page-item disabled' : 'page-item'
                     }
                 >
-                    <a className="page-link link-secondary" href="#">
+                    <button
+                        className="page-link link-secondary"
+                        onClick={onClickPrev}
+                    >
                         Назад
-                    </a>
+                    </button>
                 </li>
                 {Array.from({ length: pagesCount }, (_, i) => i + 1).map(
                     (number) => (
@@ -30,9 +42,12 @@ const Pagination: React.FC<PaginationProps> = ({ pagesCount, currentPage }) => {
                                     : 'page-item'
                             }
                         >
-                            <a className="page-link link-secondary" href="#">
+                            <button
+                                className="page-link link-secondary"
+                                onClick={() => onClickNumber(number)}
+                            >
                                 {number}
-                            </a>
+                            </button>
                         </li>
                     )
                 )}
@@ -43,9 +58,12 @@ const Pagination: React.FC<PaginationProps> = ({ pagesCount, currentPage }) => {
                             : 'page-item'
                     }
                 >
-                    <a className="page-link link-secondary" href="#">
+                    <button
+                        className="page-link link-secondary"
+                        onClick={onClickNext}
+                    >
                         Вперед
-                    </a>
+                    </button>
                 </li>
             </ul>
         </nav>

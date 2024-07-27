@@ -5,7 +5,6 @@ import { getDocQuery } from '../api/getData';
 import CategoriesData from '../types/CategoriesData';
 import FilterForm from '../components/FilterForm';
 import ProductsList from '../components/ProductsList';
-import Pagination from '../components/Pagination';
 
 const CatalogPage = () => {
     const { category } = useParams<string>();
@@ -49,8 +48,6 @@ const CatalogPage = () => {
                 isError={isError}
                 isLoading={isLoading}
             />
-
-            <Pagination pagesCount={7} currentPage={6} />
         </div>
     );
 };
