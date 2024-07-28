@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-interface FilterState {
+export interface FilterState {
     currentPage: number;
     searchValue: string;
     volumeFilter: string;

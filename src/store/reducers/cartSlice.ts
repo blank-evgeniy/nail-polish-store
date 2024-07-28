@@ -5,7 +5,7 @@ interface CartProduct extends ProductData {
     amount: number;
 }
 
-interface CartState {
+export interface CartState {
     cart: CartProduct[];
     totalPrice: number;
 }
@@ -31,8 +31,6 @@ export const cartSlice = createSlice({
             } else {
                 state.cart.push({ ...action.payload, amount: 1 });
             }
-
-            console.log(state.totalPrice);
         },
         removeProductToBasket(state, action: PayloadAction<ProductData>) {
             const index = state.cart.findIndex(
