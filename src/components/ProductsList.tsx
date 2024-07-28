@@ -42,11 +42,11 @@ const ProductsList: React.FC<ProductsListProps> = ({
         <div className="row">
             {isLoading && <ProductCardsSkeleton />}
             {isError && (
-                <div className="text-center">
+                <div className="text-center fs-5">
                     Произошла непредвиденная ошибка
                 </div>
             )}
-            {productsData &&
+            {filteredProducts.length > 0 ? (
                 filteredProducts
                     .slice(
                         (currentPage - 1) * PRODUCTS_ON_PAGE,
@@ -59,7 +59,10 @@ const ProductsList: React.FC<ProductsListProps> = ({
                         >
                             <ProductCard {...product} key={product.id} />
                         </div>
-                    ))}
+                    ))
+            ) : (
+                <div className="text-center fs-5">Продукты не найдены</div>
+            )}
             <Pagination
                 pagesCount={Math.ceil(
                     filteredProducts.length / PRODUCTS_ON_PAGE
