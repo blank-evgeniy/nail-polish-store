@@ -3,7 +3,6 @@ import { useAppDispatch } from '../hooks/redux';
 import { filterSlice } from '../store/reducers/filterSlice';
 import { useDebounce } from 'use-debounce';
 import { useLocation } from 'react-router-dom';
-import { pagingSlice } from '../store/reducers/pagingSlice';
 
 const SearchInput = () => {
     const location = useLocation();
@@ -12,7 +11,6 @@ const SearchInput = () => {
     const [debouncedValue] = useDebounce(searchValue, 1000);
 
     const { updateSearchValue } = filterSlice.actions;
-    const { setPage } = pagingSlice.actions;
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -21,7 +19,6 @@ const SearchInput = () => {
 
     useEffect(() => {
         dispatch(updateSearchValue(debouncedValue));
-        dispatch(setPage(1));
     }, [debouncedValue]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

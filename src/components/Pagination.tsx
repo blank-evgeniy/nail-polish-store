@@ -1,21 +1,17 @@
 import React from 'react';
+import { useAppDispatch } from '../hooks/redux';
+import { filterSlice } from '../store/reducers/filterSlice';
 
 interface PaginationProps {
     pagesCount: number;
     currentPage: number;
-    onClickNext: () => void;
-    onClickPrev: () => void;
-    onClickNumber: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
-    pagesCount,
-    currentPage,
-    onClickNext,
-    onClickPrev,
-    onClickNumber,
-}) => {
-    if (pagesCount === 1) return <></>;
+const Pagination: React.FC<PaginationProps> = ({ pagesCount, currentPage }) => {
+    const { setPrevPage, setNextPage, setPage } = filterSlice.actions;
+    const dispatch = useAppDispatch();
+
+    if (pagesCount <= 1) return <></>;
 
     return (
         <nav aria-label="Page navigation">
@@ -27,7 +23,10 @@ const Pagination: React.FC<PaginationProps> = ({
                 >
                     <button
                         className="page-link link-secondary"
-                        onClick={onClickPrev}
+                        onClick={() => {
+                            dispatch(setPrevPage());
+                            window.scrollTo(0, 0);
+                        }}
                     >
                         Назад
                     </button>
@@ -44,7 +43,10 @@ const Pagination: React.FC<PaginationProps> = ({
                         >
                             <button
                                 className="page-link link-secondary"
-                                onClick={() => onClickNumber(number)}
+                                onClick={() => {
+                                    dispatch(setPage(number));
+                                    window.scrollTo(0, 0);
+                                }}
                             >
                                 {number}
                             </button>
@@ -60,7 +62,10 @@ const Pagination: React.FC<PaginationProps> = ({
                 >
                     <button
                         className="page-link link-secondary"
-                        onClick={onClickNext}
+                        onClick={() => {
+                            dispatch(setNextPage());
+                            window.scrollTo(0, 0);
+                        }}
                     >
                         Вперед
                     </button>

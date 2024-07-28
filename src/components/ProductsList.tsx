@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom';
 import { filterSlice } from '../store/reducers/filterSlice';
 import ProductData from '../types/ProductData';
 import Pagination from './Pagination';
-import { pagingSlice } from '../store/reducers/pagingSlice';
 
 interface ProductsListProps {
     productsData: ProductData[] | undefined;
@@ -21,14 +20,11 @@ const ProductsList: React.FC<ProductsListProps> = ({
     isError,
     isLoading,
 }) => {
-    const productsOnPage = 12;
+    const PRODUCTS_ON_PAGE = 12;
     const location = useLocation();
 
-    const { searchValue, volumeFilter, colorFilter } = useAppSelector(
-        (state) => state.filter
-    );
-    const { currentPage } = useAppSelector((state) => state.paging);
-    const { setPrevPage, setNextPage, setPage } = pagingSlice.actions;
+    const { currentPage, searchValue, volumeFilter, colorFilter } =
+        useAppSelector((state) => state.filter);
     const { resetFilters } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
@@ -40,7 +36,6 @@ const ProductsList: React.FC<ProductsListProps> = ({
 
     useEffect(() => {
         dispatch(resetFilters());
-        dispatch(setPage(1));
     }, [location]);
 
     return (
@@ -54,8 +49,8 @@ const ProductsList: React.FC<ProductsListProps> = ({
             {productsData &&
                 filteredProducts
                     .slice(
-                        (currentPage - 1) * productsOnPage,
-                        currentPage * productsOnPage
+                        (currentPage - 1) * PRODUCTS_ON_PAGE,
+                        currentPage * PRODUCTS_ON_PAGE
                     )
                     .map((product) => (
                         <div
@@ -66,11 +61,10 @@ const ProductsList: React.FC<ProductsListProps> = ({
                         </div>
                     ))}
             <Pagination
-                pagesCount={Math.ceil(filteredProducts.length / productsOnPage)}
+                pagesCount={Math.ceil(
+                    filteredProducts.length / PRODUCTS_ON_PAGE
+                )}
                 currentPage={currentPage}
-                onClickNext={() => dispatch(setNextPage())}
-                onClickPrev={() => dispatch(setPrevPage())}
-                onClickNumber={(number) => dispatch(setPage(number))}
             />
         </div>
     );
