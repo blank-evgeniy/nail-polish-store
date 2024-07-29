@@ -1,13 +1,9 @@
 import React from 'react';
 import ProductData from '../types/ProductData';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../hooks/redux';
-import { cartSlice } from '../store/reducers/cartSlice';
+import ToCartButton from './ToCartButton';
 
 const ProductCard: React.FC<ProductData> = (props) => {
-    const dispatch = useAppDispatch();
-    const { addedProductToBasket } = cartSlice.actions;
-
     return (
         <div
             className="card rounded-0 mb-5 p-0 container-fluid"
@@ -40,14 +36,7 @@ const ProductCard: React.FC<ProductData> = (props) => {
                 {props.inStock ? (
                     <>
                         <p className="card-text fw-bolder fs-5">{`${props.price} руб.`}</p>
-                        <button
-                            className="btn btn-secondary"
-                            onClick={() =>
-                                dispatch(addedProductToBasket(props))
-                            }
-                        >
-                            В корзину
-                        </button>
+                        <ToCartButton {...props} />
                     </>
                 ) : (
                     <>
