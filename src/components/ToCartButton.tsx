@@ -21,7 +21,10 @@ const ToCartButton: React.FC<ProductData> = (props) => {
 
     if (productsInCart.length > 0)
         return (
-            <div className="d-flex justify-content-between">
+            <div
+                className="d-flex justify-content-between mx-auto"
+                style={{ maxWidth: '160px' }}
+            >
                 <button
                     style={{ width: '32px', height: '32px' }}
                     className="btn btn-secondary fw-bold p-0"

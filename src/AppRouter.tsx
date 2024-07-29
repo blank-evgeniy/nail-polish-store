@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
+const Cart = lazy(() => import('./pages/Cart'));
 const Home = lazy(() => import('./pages/Home'));
 const Categories = lazy(() => import('./pages/Categories'));
 const Contacts = lazy(() => import('./pages/Contacts'));
@@ -35,7 +36,7 @@ const router = createHashRouter([
             },
             {
                 path: '/basket',
-                element: <div>BasketPage</div>,
+                element: <Cart />,
             },
         ],
     },
