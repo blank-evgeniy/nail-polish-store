@@ -1,11 +1,7 @@
-import React from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks/redux';
-import { cartSlice } from '../store/reducers/cartSlice';
+import { useAppSelector } from '../hooks/redux';
 import ToCartButton from '../components/ToCartButton';
 
 const Cart = () => {
-    // const dispatch = useAppDispatch();
-    // const { addProductToBasket, removeProductFromBasket } = cartSlice.actions;
     const { cart, totalPrice } = useAppSelector((state) => state.cart);
 
     return (

@@ -11,8 +11,12 @@ export interface CartState {
 }
 
 const initialState: CartState = {
-    cart: [],
-    totalPrice: 0,
+    cart: localStorage.getItem('cart')
+        ? JSON.parse(localStorage.getItem('cart')!)
+        : [],
+    totalPrice: localStorage.getItem('total-price')
+        ? Number(JSON.parse(localStorage.getItem('total-price')!))
+        : 0,
 };
 
 export const cartSlice = createSlice({
@@ -31,6 +35,12 @@ export const cartSlice = createSlice({
             } else {
                 state.cart.push({ ...action.payload, amount: 1 });
             }
+
+            localStorage.setItem('cart', JSON.stringify(state.cart));
+            localStorage.setItem(
+                'total-price',
+                JSON.stringify(state.totalPrice)
+            );
         },
         removeProductFromBasket(state, action: PayloadAction<ProductData>) {
             const index = state.cart.findIndex(
@@ -45,8 +55,13 @@ export const cartSlice = createSlice({
                 }
                 state.totalPrice -= action.payload.price;
             }
+
+            localStorage.setItem('cart', JSON.stringify(state.cart));
+            localStorage.setItem(
+                'total-price',
+                JSON.stringify(state.totalPrice)
+            );
         },
-        clearBasket: () => initialState,
     },
 });
 
