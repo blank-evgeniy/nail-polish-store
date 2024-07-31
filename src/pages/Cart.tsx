@@ -1,8 +1,10 @@
 import { useAppSelector } from '../hooks/redux';
 import ToCartButton from '../components/ToCartButton';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const { cart, totalPrice } = useAppSelector((state) => state.cart);
+    const navigate = useNavigate();
 
     return (
         <div className="container-xl">
@@ -33,9 +35,19 @@ const Cart = () => {
                 </div>
             ))}
             {cart.length > 0 ? (
-                <p className="fs-5 text-center">
-                    Итого: <b>{totalPrice} руб.</b>
-                </p>
+                <div className="text-center pb-5">
+                    <p className="fs-5">
+                        Итого: <b>{totalPrice} руб.</b>
+                    </p>
+                    <button
+                        onClick={() => {
+                            navigate('/contacts');
+                        }}
+                        className="btn btn-secondary btn-lg mt-2"
+                    >
+                        Заказать
+                    </button>
+                </div>
             ) : (
                 <p className="fs-5 text-center">Ваша корзина пуста</p>
             )}

@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardproductData> = ({
                         </div>
                     </div>
                     <button
-                        className="col-2"
+                        className="col-2 btn-default"
                         data-bs-toggle="modal"
                         data-bs-target="#productModal"
                         onClick={() => onModalOpen(productData)}

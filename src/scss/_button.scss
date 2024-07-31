@@ -9,3 +9,11 @@
     color: #000 !important;
     background-color: rgb(235, 235, 235) !important;
 }
+
+.btn-default {
+    border: none;
+    background-color: inherit;
+    &:hover {
+        scale: 1.1;
+    }
+}
