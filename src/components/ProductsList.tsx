@@ -23,7 +23,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
 }) => {
     const PRODUCTS_ON_PAGE = 12;
     const location = useLocation();
-    const [modalProduct, setModalProduct] = useState<ProductData>();
+    const [modalProduct, setModalProduct] = useState<ProductData | null>(null);
 
     const { currentPage, searchValue, volumeFilter, colorFilter } =
         useAppSelector((state) => state.filter);
@@ -79,7 +79,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
                 )}
                 currentPage={currentPage}
             />
-            {modalProduct && <ModalProductInfo {...modalProduct} />}
+            <ModalProductInfo productData={modalProduct} />
         </div>
     );
 };
