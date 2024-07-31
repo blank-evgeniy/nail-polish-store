@@ -13,8 +13,11 @@ const ProductCard: React.FC<ProductCardproductData> = ({
     productData,
     onModalOpen,
 }) => {
+    //В мобильной версии полная информация о карточках отображается в модальном окне,
+    //переход на которое осуществляется по data-bs-target="#productModal" у кнопки
     const isMobile = useMediaQuery({ maxWidth: 767 });
 
+    //--------------мобильная версия------------------------
     if (isMobile)
         return (
             <div className="card mb-3">
@@ -55,6 +58,7 @@ const ProductCard: React.FC<ProductCardproductData> = ({
             </div>
         );
 
+    //--------------компьютерная версия------------------------
     return (
         <div
             className="card rounded-0 mb-5 p-0 container-fluid"

@@ -16,6 +16,9 @@ const FilterForm: React.FC<SelectorsFormProps> = ({ data }) => {
     const { updateVolumeFilter, updateColorFilter } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
+    //С помощью вспомогательной функции получаем списоку уникальных значений
+    //цвета и объема, чтобы отобразить их как варианты выпадающих списков
+
     const volumeValues = data
         ? getUniqueValues(data.map((item) => item.volume))
         : [];

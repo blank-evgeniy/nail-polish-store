@@ -58,6 +58,7 @@ const ModalProductInfo: React.FC<ModalProductInfoproductData> = ({
                                     <li className="list-group-item">{`Эффект: ${productData.effect}`}</li>
                                 )}
                             </ul>
+                            {/* отображение разного функционала при наличии и отсутствии товара */}
                             <div className="text-center ">
                                 {productData.inStock ? (
                                     <>

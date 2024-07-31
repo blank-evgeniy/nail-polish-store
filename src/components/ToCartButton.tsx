@@ -15,6 +15,8 @@ const ToCartButton: React.FC<ProductData> = (props) => {
         dispatch(removeProductFromBasket(props));
     };
 
+    //проверяем наличие продукта в корзинах (и фиксируем его количество для отображения),
+    //если его там нет, товозвращается пустой массив и мы можем проверить это по свойству length
     const productsInCart = cart
         .filter((product) => product.id === props.id)
         .map((product) => product.amount);

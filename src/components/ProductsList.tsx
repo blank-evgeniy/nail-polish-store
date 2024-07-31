@@ -16,6 +16,8 @@ interface ProductsListProps {
     isError: boolean;
 }
 
+//самый громозкий компонент, при возможности надо декомпозировать
+//и распределить его функционал
 const ProductsList: React.FC<ProductsListProps> = ({
     productsData,
     isError,
@@ -30,11 +32,16 @@ const ProductsList: React.FC<ProductsListProps> = ({
     const { resetFilters } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
+    //фильтруем список выводимых продуктов, учитывая поиск и селекты
     const filteredProducts = filterProducts(
         searchProducts(searchValue, productsData),
         volumeFilter,
         colorFilter
     );
+
+    //Храним в стейте данные модального окна и обновляем их при нажатии
+    //на кнопку открытия модального окна для динамического отображения
+    //данных о конкретном продукте
 
     const handleModalOpen = (product: ProductData) => {
         setModalProduct(product);

@@ -17,6 +17,8 @@ const SearchInput = () => {
         setSearchValue('');
     }, [location]);
 
+    //с помощью useEffect обновляем значение поискового запроса в стейте
+    //только через секунду после остановки печати (дебаунсинг)
     useEffect(() => {
         dispatch(updateSearchValue(debouncedValue));
     }, [debouncedValue]);

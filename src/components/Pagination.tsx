@@ -11,6 +11,8 @@ const Pagination: React.FC<PaginationProps> = ({ pagesCount, currentPage }) => {
     const { setPrevPage, setNextPage, setPage } = filterSlice.actions;
     const dispatch = useAppDispatch();
 
+    //Если количество страниц продуктов меньше двух, отображение пагинации
+    //не имеет смысла
     if (pagesCount <= 1) return <></>;
 
     return (
