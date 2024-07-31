@@ -31,10 +31,6 @@ const router = createHashRouter([
                 element: <Contacts />,
             },
             {
-                path: '/product/:id',
-                element: <div>ProductPage</div>,
-            },
-            {
                 path: '/basket',
                 element: <Cart />,
             },

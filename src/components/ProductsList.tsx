@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ProductCardsSkeleton } from './Skeleton';
 import filterProducts from '../auxiliary/filterProducts';
 import searchProducts from '../auxiliary/searchProducts';
@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom';
 import { filterSlice } from '../store/reducers/filterSlice';
 import ProductData from '../types/ProductData';
 import Pagination from './Pagination';
+import ModalProductInfo from './ModalProductInfo';
 
 interface ProductsListProps {
     productsData: ProductData[] | undefined;
@@ -22,6 +23,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
 }) => {
     const PRODUCTS_ON_PAGE = 12;
     const location = useLocation();
+    const [modalProduct, setModalProduct] = useState<ProductData>();
 
     const { currentPage, searchValue, volumeFilter, colorFilter } =
         useAppSelector((state) => state.filter);
@@ -33,6 +35,10 @@ const ProductsList: React.FC<ProductsListProps> = ({
         volumeFilter,
         colorFilter
     );
+
+    const handleModalOpen = (product: ProductData) => {
+        setModalProduct(product);
+    };
 
     useEffect(() => {
         dispatch(resetFilters());
@@ -55,9 +61,13 @@ const ProductsList: React.FC<ProductsListProps> = ({
                     .map((product) => (
                         <div
                             key={product.id}
-                            className="col-xxl-2 col-xl-3 col-sm-4 col-6"
+                            className="col-xxl-2 col-xl-3 col-md-4 col-12"
                         >
-                            <ProductCard {...product} key={product.id} />
+                            <ProductCard
+                                productData={product}
+                                onModalOpen={(item) => handleModalOpen(item)}
+                                key={product.id}
+                            />
                         </div>
                     ))
             ) : (
@@ -69,6 +79,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
                 )}
                 currentPage={currentPage}
             />
+            {modalProduct && <ModalProductInfo {...modalProduct} />}
         </div>
     );
 };

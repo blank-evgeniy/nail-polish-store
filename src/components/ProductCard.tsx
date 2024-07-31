@@ -2,41 +2,92 @@ import React from 'react';
 import ProductData from '../types/ProductData';
 import { Link } from 'react-router-dom';
 import ToCartButton from './ToCartButton';
+import { useMediaQuery } from 'react-responsive';
 
-const ProductCard: React.FC<ProductData> = (props) => {
+interface ProductCardproductData {
+    productData: ProductData;
+    onModalOpen: (product: ProductData) => void;
+}
+
+const ProductCard: React.FC<ProductCardproductData> = ({
+    productData,
+    onModalOpen,
+}) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+
+    if (isMobile)
+        return (
+            <div className="card mb-3">
+                <div className="row align-items-center g-0">
+                    <div className="col-3">
+                        <img
+                            src={`${productData.image}`}
+                            className="img-fluid rounded-start"
+                            alt="..."
+                        />
+                    </div>
+                    <div className="col-7">
+                        <div className="card-body p-3">
+                            <h5 className="card-title fs-6">
+                                {productData.title}
+                            </h5>
+                            <p className="card-text">
+                                {productData.price} руб.
+                            </p>
+                        </div>
+                    </div>
+                    <button
+                        className="col-2"
+                        data-bs-toggle="modal"
+                        data-bs-target="#productModal"
+                        onClick={() => onModalOpen(productData)}
+                    >
+                        <svg
+                            viewBox="0 0 512 512"
+                            height="48px"
+                            width="48px"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        );
+
     return (
         <div
             className="card rounded-0 mb-5 p-0 container-fluid"
             style={{ maxWidth: '200px' }}
         >
             <img
-                src={`${props.image}`}
-                alt={props.title}
+                src={`${productData.image}`}
+                alt={productData.title}
                 className="rounded-top-0 card-img-top"
             ></img>
             <div className="card-body">
-                <h6 className="card-title">{props.title}</h6>
-                <p className="card-text">{props.description}</p>
+                <h6 className="card-title">{productData.title}</h6>
+                <p className="card-text">{productData.description}</p>
             </div>
             <ul
                 className="list-group list-group-flush"
                 style={{ fontSize: '0.8rem' }}
             >
-                {props.color && (
-                    <li className="list-group-item">{`Цвет: ${props.color}`}</li>
+                {productData.color && (
+                    <li className="list-group-item">{`Цвет: ${productData.color}`}</li>
                 )}
-                {props.volume && (
-                    <li className="list-group-item">{`Объём: ${props.volume} мл`}</li>
+                {productData.volume && (
+                    <li className="list-group-item">{`Объём: ${productData.volume} мл`}</li>
                 )}
-                {props.effect && (
-                    <li className="list-group-item">{`Эффект: ${props.effect}`}</li>
+                {productData.effect && (
+                    <li className="list-group-item">{`Эффект: ${productData.effect}`}</li>
                 )}
             </ul>
             <div className="card-body text-center">
-                {props.inStock ? (
+                {productData.inStock ? (
                     <>
-                        <p className="card-text fw-bolder fs-5">{`${props.price} руб.`}</p>
-                        <ToCartButton {...props} />
+                        <p className="card-text fw-bolder fs-5">{`${productData.price} руб.`}</p>
+                        <ToCartButton {...productData} />
                     </>
                 ) : (
                     <>
