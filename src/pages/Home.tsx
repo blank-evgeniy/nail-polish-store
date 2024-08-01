@@ -1,9 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { pushDocs } from '../data/data';
 
 const Home = () => {
     const navigate = useNavigate();
-    pushDocs();
 
     return (
         <div
