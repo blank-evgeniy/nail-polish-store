@@ -1,7 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { pushDocs } from '../data/data';
 
 const Home = () => {
     const navigate = useNavigate();
+    pushDocs();
 
     return (
         <div
@@ -18,7 +20,7 @@ const Home = () => {
                 nail-мастера, широчайшую палитру классических и авторских
                 оттенков.
             </p>
-            <p className="fs-4 mt-2 text-center">
+            <p className="fs-5 mt-2 text-center">
                 На нашем сайте вы можете ознакомиться с продукцией, чтобы{' '}
                 <Link to="/contacts" className="link-secondary">
                     связаться с нами
