@@ -1,4 +1,4 @@
-type ProductData = {
+interface ProductData {
     id: string;
     title: string;
     section: string;
@@ -9,6 +9,10 @@ type ProductData = {
     price: number;
     image: string;
     inStock: boolean;
-};
+}
+
+export interface CartProductData extends ProductData {
+    amount: number;
+}
 
 export default ProductData;

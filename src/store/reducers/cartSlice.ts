@@ -1,12 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import ProductData from '../../types/ProductData';
-
-interface CartProduct extends ProductData {
-    amount: number;
-}
+import ProductData, { CartProductData } from '../../types/ProductData';
 
 export interface CartState {
-    cart: CartProduct[];
+    cart: CartProductData[];
     totalPrice: number;
 }
 
