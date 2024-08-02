@@ -1,7 +1,9 @@
+import Heading from '../components/Heading';
+
 const Contacts = () => {
     return (
         <div className="container-sm">
-            <h1 className="text-center my-5">Контакты</h1>
+            <Heading className="my-5">Контакты</Heading>
             <p className="fs-5">
                 Чтобы заказать товар или задать интересующий вас вопрос, вы
                 можете связаться со мной по следующим контактам:

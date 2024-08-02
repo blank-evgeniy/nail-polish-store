@@ -1,0 +1,37 @@
+import React from 'react';
+import { CartProductData } from '../types/ProductData';
+import ToCartButton from './ToCartButton';
+
+interface CartItemProps {
+    product: CartProductData;
+}
+
+const CartItem: React.FC<CartItemProps> = ({ product }) => {
+    return (
+        <div key={product.id} className="card mb-3">
+            <div className="row g-0 align-items-center">
+                <div className="col-md-2 col-3 text-center">
+                    <img
+                        src={product.image}
+                        style={{ width: '140px' }}
+                        className="img-fluid rounded-start"
+                        alt="..."
+                    />
+                </div>
+                <div className="col-md-7 col-9 fs-6 align-content-center">
+                    <div className="card-body">
+                        <h5 className="card-title">{product.title}</h5>
+                        <p className="card-text fw-semibold">
+                            {product.price * product.amount} руб.
+                        </p>
+                    </div>
+                </div>
+                <div className="col-md-3 col-12 p-4 align-content-center">
+                    <ToCartButton {...product} />
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default CartItem;

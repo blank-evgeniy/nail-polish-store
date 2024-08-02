@@ -5,6 +5,7 @@ import { getDocQuery } from '../api/getData';
 import CategoriesData from '../types/CategoriesData';
 import FilterForm from '../components/FilterForm';
 import ProductsList from '../components/ProductsList';
+import Heading from '../components/Heading';
 
 const CatalogPage = () => {
     const { category } = useParams<string>();
@@ -33,13 +34,9 @@ const CatalogPage = () => {
                     </li>
                 </ol>
             </nav>
-            <h1 className="text-center mt-2 mb-5">
-                {categoryData ? (
-                    categoryData.title
-                ) : (
-                    <span className="placeholder col-2"></span>
-                )}
-            </h1>
+            <Heading className="text-center mt-2 mb-5">
+                {categoryData?.title}
+            </Heading>
 
             <FilterForm data={productsData} />
 

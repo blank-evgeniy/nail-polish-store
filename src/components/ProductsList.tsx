@@ -23,6 +23,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
     isError,
     isLoading,
 }) => {
+    //TODO: перенести в отдельный файл с константами
     const PRODUCTS_ON_PAGE = 12;
     const location = useLocation();
     const [modalProduct, setModalProduct] = useState<ProductData | null>(null);

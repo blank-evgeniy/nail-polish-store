@@ -1,5 +1,6 @@
 import { getDocsQuery } from '../api/getData';
 import CategoryCard from '../components/CategoryCard';
+import Heading from '../components/Heading';
 import { CategoryCardsSkeleton } from '../components/Skeleton';
 import { useQuery } from 'react-query';
 
@@ -16,7 +17,7 @@ const Categories = () => {
 
     return (
         <div className="container-xl">
-            <h1 className="text-center my-5">Категории товаров</h1>
+            <Heading className="my-5">Категории товаров</Heading>
             <div className="row">
                 {isLoading ? (
                     <CategoryCardsSkeleton />

@@ -1,6 +1,7 @@
 import { useAppSelector } from '../hooks/redux';
-import ToCartButton from '../components/ToCartButton';
 import { useNavigate } from 'react-router-dom';
+import Heading from '../components/Heading';
+import CartItem from '../components/CartItem';
 
 const Cart = () => {
     const { cart, totalPrice } = useAppSelector((state) => state.cart);
@@ -8,34 +9,12 @@ const Cart = () => {
 
     return (
         <div className="container-xl">
-            <h1 className="text-center my-5">Корзина товаров</h1>
+            <Heading className="my-5">Корзина товаров</Heading>
             {cart.map((product) => (
-                <div key={product.id} className="card mb-3">
-                    <div className="row g-0 align-items-center">
-                        <div className="col-md-2 col-3 text-center">
-                            <img
-                                src={product.image}
-                                style={{ width: '140px' }}
-                                className="img-fluid rounded-start"
-                                alt="..."
-                            />
-                        </div>
-                        <div className="col-md-7 col-9 fs-6 align-content-center">
-                            <div className="card-body">
-                                <h5 className="card-title">{product.title}</h5>
-                                <p className="card-text fw-semibold">
-                                    {product.price * product.amount} руб.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="col-md-3 col-12 p-4 align-content-center">
-                            <ToCartButton {...product} />
-                        </div>
-                    </div>
-                </div>
+                <CartItem product={product} />
             ))}
             {/* при наличии продуктов в корзине подсчитывается общая сумма и выводится 
-                кнопка-ссылка на контакты для заказать */}
+                кнопка-ссылка на контакты для заказа*/}
             {cart.length > 0 ? (
                 <div className="text-center pb-5">
                     <p className="fs-5">
