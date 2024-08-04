@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
+import AdminPage from './pages/AdminPage';
 const Cart = lazy(() => import('./pages/Cart'));
 const Home = lazy(() => import('./pages/Home'));
 const Categories = lazy(() => import('./pages/Categories'));
@@ -33,6 +34,10 @@ const router = createHashRouter([
             {
                 path: '/basket',
                 element: <Cart />,
+            },
+            {
+                path: '/admin',
+                element: <AdminPage />,
             },
         ],
     },
