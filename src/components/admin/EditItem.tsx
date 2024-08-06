@@ -24,8 +24,6 @@ const EditItem: React.FC<EditItemProps> = ({ item }) => {
             return;
         }
 
-        setInputError(null);
-
         const newItem = {
             ...item,
             price: parseInt(inputPrice.current.value, 10),
@@ -33,6 +31,7 @@ const EditItem: React.FC<EditItemProps> = ({ item }) => {
         };
 
         pushProduct(newItem);
+        setInputError(null);
         setIsDeleted(false);
     };
 
@@ -114,14 +113,12 @@ const EditItem: React.FC<EditItemProps> = ({ item }) => {
                     <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button
                             className="btn btn-primary me-md-2"
-                            type="button"
                             onClick={handleUpdate}
                         >
-                            Обновить
+                            {isDeleted ? 'Восстановить' : 'Обновить'}
                         </button>
                         <button
                             className="btn btn-primary"
-                            type="button"
                             onClick={handleDelete}
                             disabled={isDeleted}
                         >

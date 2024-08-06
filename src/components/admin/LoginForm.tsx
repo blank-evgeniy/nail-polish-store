@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { useAuth } from '../hooks/useAuth';
-import { UserType } from '../store/reducers/authSlice';
+import { useAuth } from '../../hooks/useAuth';
+import { UserType } from '../../store/reducers/authSlice';
 
 const LoginForm = () => {
     const { login } = useAuth();
@@ -52,7 +52,7 @@ const LoginForm = () => {
                     />
                 </div>
                 <button type="submit" className="btn btn-primary">
-                    Login
+                    Войти
                 </button>
             </form>
         </div>

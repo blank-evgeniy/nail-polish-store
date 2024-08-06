@@ -35,11 +35,11 @@ const router = createHashRouter([
                 path: '/basket',
                 element: <Cart />,
             },
-            {
-                path: '/admin',
-                element: <AdminPage />,
-            },
         ],
+    },
+    {
+        path: '/admin',
+        element: <AdminPage />,
     },
 ]);
 
