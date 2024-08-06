@@ -3,7 +3,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { UserType } from '../../store/reducers/authSlice';
 
 const LoginForm = () => {
-    const { login } = useAuth();
+    const { login, error, loading } = useAuth();
 
     const email = useRef<null | HTMLInputElement>(null);
     const passsword = useRef<null | HTMLInputElement>(null);
@@ -51,6 +51,15 @@ const LoginForm = () => {
                         autoComplete="on"
                     />
                 </div>
+                {loading && (
+                    <div
+                        className="spinner-border d-block container-fluid text-primary text-center"
+                        role="status"
+                    >
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                )}
+                {error && <p className="text-danger">{error}</p>}
                 <button type="submit" className="btn btn-primary">
                     Войти
                 </button>
