@@ -11,7 +11,8 @@ interface ProductData {
     inStock: boolean;
 }
 
-export interface CartProductData extends ProductData {
+export interface CartProductData {
+    id: string;
     amount: number;
 }
 

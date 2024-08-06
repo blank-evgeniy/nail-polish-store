@@ -36,5 +36,7 @@ export const getDocQuery = async <T,>(path: string, id: string) => {
         throw Error('Данные не найдены');
     }
 
-    return document.data() as T;
+    const data = { ...document.data(), id: id };
+
+    return data as T;
 };

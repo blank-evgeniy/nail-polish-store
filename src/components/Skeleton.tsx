@@ -133,3 +133,32 @@ export const ProductCardsSkeleton = () => {
         </>
     );
 };
+
+export const CartItemSkeleton = () => {
+    return (
+        <div className="card mb-3">
+            <div className="row g-0 align-items-center">
+                <div className="col-md-2 col-3 text-center">
+                    <div
+                        className="img-fluid rounded-start"
+                        style={{
+                            width: '100%',
+                            height: '140px',
+                            background: 'gray',
+                        }}
+                    ></div>
+                </div>
+                <div className="col-md-7 col-9 fs-6 align-content-center">
+                    <div className="card-body">
+                        <h5 className="card-title placeholder-glow">
+                            <span className="placeholder col-6"></span>
+                        </h5>
+                        <p className="card-text placeholder-glow">
+                            <span className="placeholder col-2"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};

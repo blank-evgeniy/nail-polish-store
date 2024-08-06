@@ -29,7 +29,7 @@ export const cartSlice = createSlice({
             if (index >= 0) {
                 state.cart[index].amount++;
             } else {
-                state.cart.push({ ...action.payload, amount: 1 });
+                state.cart.push({ id: action.payload.id, amount: 1 });
             }
 
             localStorage.setItem('cart', JSON.stringify(state.cart));

@@ -11,7 +11,7 @@ const Cart = () => {
         <div className="container-xl">
             <Heading className="my-5">Корзина товаров</Heading>
             {cart.map((product) => (
-                <CartItem product={product} />
+                <CartItem key={product.id} product={product} />
             ))}
             {/* при наличии продуктов в корзине подсчитывается общая сумма и выводится 
                 кнопка-ссылка на контакты для заказа*/}
