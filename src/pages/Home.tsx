@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div
             style={{ minHeight: 'calc(100vh - 80px)' }}
-            className="container-lg d-flex flex-column align-items-center justify-content-center py-5"
+            className="container-lg d-flex flex-column align-items-center justify-content-center py-1"
         >
             <h2 className="fs-4">Добро пожаловать!</h2>
             <h1 className="fs-3 my-3 text-center">

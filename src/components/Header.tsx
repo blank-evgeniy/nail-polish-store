@@ -7,7 +7,7 @@ const Header = () => {
             <nav className="navbar bg-secondary navbar-expand-lg">
                 <div className="container-fluid">
                     <Link className="navbar-brand me-auto" to="/">
-                        Logo
+                        Serebro39
                     </Link>
                     <div
                         className="offcanvas bg-secondary offcanvas-end"

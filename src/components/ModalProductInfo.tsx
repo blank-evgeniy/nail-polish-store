@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductData from '../types/ProductData';
 import ToCartButton from './ToCartButton';
-import { Link } from 'react-router-dom';
 
 interface ModalProductInfoproductData {
     productData: ProductData | null;
@@ -70,12 +69,12 @@ const ModalProductInfo: React.FC<ModalProductInfoproductData> = ({
                                         <p className="card-text fw-semibold fs-6">
                                             нет в наличии
                                         </p>
-                                        <Link
-                                            to="/contacts"
+                                        <a
+                                            href="/#/contacts"
                                             className="link-secondary"
                                         >
                                             свяжитесь с нами, чтобы заказать
-                                        </Link>{' '}
+                                        </a>{' '}
                                     </>
                                 )}
                             </div>

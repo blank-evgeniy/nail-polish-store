@@ -15,8 +15,8 @@ const NavLinks = () => {
                 <Link
                     className={
                         currentUrl === '/'
-                            ? 'nav-link mx-lg-2 active'
-                            : 'nav-link mx-lg-2'
+                            ? 'nav-link fw-normal mx-lg-2 active'
+                            : 'nav-link fw-normal mx-lg-2'
                     }
                     to="/"
                     data-bs-dismiss="offcanvas"
@@ -28,7 +28,7 @@ const NavLinks = () => {
 
             <li className="nav-item dropdown">
                 <a
-                    className="nav-link link-primary dropdown-toggle mx-lg-2"
+                    className="nav-link link-primary fw-normal dropdown-toggle mx-lg-2"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -57,8 +57,8 @@ const NavLinks = () => {
                 <Link
                     className={
                         currentUrl === '/contacts'
-                            ? 'nav-link mx-lg-2 active'
-                            : 'nav-link mx-lg-2'
+                            ? 'nav-link fw-normal mx-lg-2 active'
+                            : 'nav-link fw-normal mx-lg-2'
                     }
                     to="/contacts"
                     data-bs-dismiss="offcanvas"
