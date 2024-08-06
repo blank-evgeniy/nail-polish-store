@@ -1,12 +1,14 @@
+import { useMediaQuery } from 'react-responsive';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const navigate = useNavigate();
+    const isMobile = useMediaQuery({ maxWidth: 767 });
 
     return (
         <div
-            style={{ minHeight: 'calc(100vh - 80px)' }}
-            className="container-lg d-flex flex-column align-items-center justify-content-center py-1"
+            style={isMobile ? {} : { minHeight: 'calc(100vh - 80px)' }}
+            className="container-lg d-flex flex-column align-items-center justify-content-center py-4"
         >
             <h2 className="fs-4">Добро пожаловать!</h2>
             <h1 className="fs-3 my-3 text-center">

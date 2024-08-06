@@ -20,7 +20,7 @@ const Header = () => {
                                 className="offcanvas-title text-primary fs-4"
                                 id="offcanvasNavbarLabel"
                             >
-                                Logo
+                                Serebro39
                             </h5>
                             <button
                                 type="button"
