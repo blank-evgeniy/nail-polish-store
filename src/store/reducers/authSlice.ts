@@ -19,6 +19,7 @@ export const authSlice = createSlice({
     reducers: {
         setUser(state, action: PayloadAction<UserType>) {
             state.user = action.payload;
+            sessionStorage.setItem('user', JSON.stringify(action.payload));
         },
     },
 });
