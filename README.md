@@ -1,5 +1,6 @@
 # Nail polish store
 This is a demo version of the site, which is a catalog of gel polish with the ability to search and add items to the cart
+![nail-polish-store vercel app_](https://github.com/user-attachments/assets/c2029713-7ed9-40c4-859b-4b2f68a04bfa)
 
 ## Stack of technologies:
 - TypeScript <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" height='20px' width='20px' />
