@@ -12,5 +12,6 @@ This is a demo version of the site, which is a catalog of gel polish with the ab
 - Product data is stored in the firestore database
 - I have written my own api for receiving and sending data to the firestore
 - Using firebase authentication, an administrator panel has been created to work with the database
+- The site has a full-fledged adaptive design for mobile devices
 
-## Link: https://nail-polish-store.vercel.app/
+### Link: https://nail-polish-store.vercel.app/
