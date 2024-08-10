@@ -1,8 +1,7 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CategoriesList from './CategoriesList';
 
 const NavLinks = () => {
-    const currentUrl = useLocation().pathname;
     const navigate = useNavigate();
 
     const handleLinkClick = (path: string) => {
@@ -13,11 +12,7 @@ const NavLinks = () => {
         <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
             <li className="nav-item">
                 <Link
-                    className={
-                        currentUrl === '/'
-                            ? 'nav-link link-secondary fw-normal mx-lg-2'
-                            : 'nav-link link-secondary fw-normal mx-lg-2'
-                    }
+                    className={'nav-link fw-normal mx-lg-2'}
                     to="/"
                     data-bs-dismiss="offcanvas"
                     onClick={() => handleLinkClick('/')}
@@ -28,7 +23,7 @@ const NavLinks = () => {
 
             <li className="nav-item dropdown">
                 <a
-                    className="nav-link link-secondary fw-normal dropdown-toggle mx-lg-2"
+                    className="nav-link fw-normal dropdown-toggle mx-lg-2"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -55,11 +50,7 @@ const NavLinks = () => {
 
             <li className="nav-item">
                 <Link
-                    className={
-                        currentUrl === '/contacts'
-                            ? 'nav-link link-secondary fw-normal mx-lg-2'
-                            : 'nav-link link-secondary fw-normal mx-lg-2'
-                    }
+                    className={'nav-link fw-normal mx-lg-2'}
                     to="/contacts"
                     data-bs-dismiss="offcanvas"
                     onClick={() => handleLinkClick('/contacts')}

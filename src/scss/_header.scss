@@ -2,55 +2,26 @@
     border: none;
 }
 
-.navbar-brand {
-    color: $primary;
-
-    &:hover,
-    &:active,
-    &:focus {
-        color: white;
-    }
-}
-
-.nav-link {
-    color: $primary;
-    font-weight: 500;
-    font-size: 1.25rem;
-    position: relative;
-
-    &:hover,
-    &:active,
-    &:focus {
-        color: white;
-    }
-
-    &.active {
-        color: $primary !important;
-    }
-}
-
 .dropdown-item:active {
     background-color: $secondary;
 }
 
-@media (min-width: 991px) {
-    .nav-link::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 2px;
-        background-color: $primary;
-        visibility: hidden;
-        transition: 0.3s ease-in-out;
+.nav-link {
+    border-radius: 4rem !important;
+    font-size: 1.25rem;
+    color: $secondary;
+
+    &:hover {
+        color: rgb(177, 133, 158);
     }
 
-    .nav-link:hover::before,
-    .nav-link.active::before {
-        background-color: $primary;
-        width: 100%;
-        visibility: visible;
+    &:active {
+        color: $danger;
     }
 }
+
+// .nav-link.active,
+// .nav-link:hover {
+//     background-color: $secondary;
+//     color: white !important;
+// }
