@@ -4,27 +4,33 @@ import NavLinks from './NavLinks';
 const Header = () => {
     return (
         <header>
-            <nav className="navbar bg-secondary navbar-expand-lg">
-                <div className="container-fluid">
-                    <Link className="navbar-brand me-auto" to="/">
+            <nav
+                className="navbar fixed-top bg-primary navbar-expand-lg shadow-sm"
+                style={{ height: '92px' }}
+            >
+                <div className="container-lg">
+                    <Link
+                        className="navbar-brand text-secondary fs-1 me-auto"
+                        to="/"
+                    >
                         Serebro39
                     </Link>
                     <div
-                        className="offcanvas bg-secondary offcanvas-end"
+                        className="offcanvas bg-primary offcanvas-end"
                         tabIndex={-1}
                         id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel"
                     >
                         <div className="offcanvas-header">
                             <h5
-                                className="offcanvas-title text-primary fs-4"
+                                className="offcanvas-title text-secondary navbar-brand fs-1"
                                 id="offcanvasNavbarLabel"
                             >
                                 Serebro39
                             </h5>
                             <button
                                 type="button"
-                                className="btn-close btn-close-white"
+                                className="btn-close btn-close"
                                 data-bs-dismiss="offcanvas"
                                 aria-label="Close"
                             ></button>
@@ -33,17 +39,16 @@ const Header = () => {
                             <NavLinks />
                         </div>
                     </div>
-                    <Link className="nav-icon fs-5" to="/basket">
+                    <Link className="nav-icon" to="/basket">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            fill="#ecdaee"
-                            className="bi bi-cart-check m-2"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            className="bi bi-bag text-secondary"
                             viewBox="0 0 16 16"
                         >
-                            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z" />
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
                         </svg>
                     </Link>
                     <button
@@ -54,7 +59,7 @@ const Header = () => {
                         aria-controls="offcanvasNavbar"
                         aria-label="Toggle navigation"
                     >
-                        <span className="navbar-toggler-icon navbar-dark"></span>
+                        <span className="navbar-toggler-icon navbar"></span>
                     </button>
                 </div>
             </nav>

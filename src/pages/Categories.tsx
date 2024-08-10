@@ -16,7 +16,7 @@ const Categories = () => {
     );
 
     return (
-        <div className="container-xl">
+        <div className="container-xl" style={{ paddingTop: '92px' }}>
             <Heading className="my-5">Категории товаров</Heading>
             <div className="row">
                 {isLoading ? (

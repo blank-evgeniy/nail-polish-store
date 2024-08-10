@@ -21,9 +21,9 @@ const CatalogPage = () => {
     } = useQuery(['products', category], () => getProducts(category!));
 
     return (
-        <div className="container-xl p-3">
+        <div className="container-xl" style={{ paddingTop: '92px' }}>
             <nav aria-label="breadcrumb">
-                <ol className="breadcrumb fs-5">
+                <ol className="breadcrumb fs-5 mt-5">
                     <li className="breadcrumb-item">
                         <Link to="/categories" className="link-secondary">
                             Все категории

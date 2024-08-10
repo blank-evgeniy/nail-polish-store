@@ -1,38 +1,36 @@
-import { useMediaQuery } from 'react-responsive';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import BgImage from './../img/home_bg.jpg';
+
+const sectionStyle = {
+    backgroundImage: `url(${BgImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
+};
 
 const Home = () => {
     const navigate = useNavigate();
-    const isMobile = useMediaQuery({ maxWidth: 767 });
 
     return (
-        <div
-            style={isMobile ? {} : { minHeight: 'calc(100vh - 80px)' }}
-            className="container-lg d-flex flex-column align-items-center justify-content-center py-4"
-        >
-            <h2 className="fs-4">Добро пожаловать!</h2>
-            <h1 className="fs-3 my-3 text-center">
-                Магазин гель-лака для ногтей
-            </h1>
-            <p className="fs-5 mt-2 text-center">
-                Мы официальный представитель ТМ "Serebro" в Калининграде. В
-                нашем ассортименте Вы найдёте полную продуктовую линейку для
-                nail-мастера, широчайшую палитру классических и авторских
-                оттенков.
-            </p>
-            <p className="fs-5 mt-2 text-center">
-                На нашем сайте вы можете ознакомиться с продукцией, чтобы{' '}
-                <Link to="/contacts" className="link-secondary">
-                    связаться с нами
-                </Link>{' '}
-                и заказать товар.
-            </p>
-            <button
-                onClick={() => navigate('/categories')}
-                className="btn btn-secondary btn-lg mt-3"
+        <div className="min-vh-100 position-relative" style={sectionStyle}>
+            <div
+                className="container-lg text-center position-absolute top-50 start-50 translate-middle text-white pb-2"
+                style={{ paddingTop: '94px' }}
             >
-                Перейти к каталогу
-            </button>
+                <h1 className="font-accent fs-3 my-3">
+                    <div>магазин гель-лака для ногтей </div>
+                    <div className="fs-1">Serebro39</div>
+                </h1>
+                <h2 className="fs-4 mt-2">
+                    официальный представитель ТМ "Serebro" в Калининграде
+                </h2>
+                <button
+                    onClick={() => navigate('/categories')}
+                    className="btn btn-primary btn-lg mt-3"
+                >
+                    Перейти к каталогу
+                </button>
+            </div>
         </div>
     );
 };

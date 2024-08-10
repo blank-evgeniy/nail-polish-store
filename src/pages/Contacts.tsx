@@ -2,7 +2,7 @@ import Heading from '../components/Heading';
 
 const Contacts = () => {
     return (
-        <div className="container-sm">
+        <div className="container-sm" style={{ paddingTop: '92px' }}>
             <Heading className="my-5">Контакты</Heading>
             <p className="fs-5">
                 Чтобы заказать товар или задать интересующий вас вопрос, вы

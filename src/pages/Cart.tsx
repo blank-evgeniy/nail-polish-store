@@ -8,7 +8,7 @@ const Cart = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="container-xl">
+        <div className="container-xl" style={{ paddingTop: '92px' }}>
             <Heading className="my-5">Корзина товаров</Heading>
             {cart.map((product) => (
                 <CartItem key={product.id} product={product} />
