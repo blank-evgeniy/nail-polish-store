@@ -6,19 +6,26 @@ import CategoriesData from '../types/CategoriesData';
 import FilterForm from '../components/FilterForm';
 import ProductsList from '../components/ProductsList';
 import Heading from '../components/Heading';
+import ErrorPage from './ErrorPage';
 
 const CatalogPage = () => {
     const { category } = useParams<string>();
 
-    const { data: categoryData } = useQuery(category!, () =>
-        getDocQuery<CategoriesData>('categories-demo', category!)
+    const { data: categoryData, isError: categoryError } = useQuery(
+        category!,
+        () => getDocQuery<CategoriesData>('categories-demo', category!)
     );
 
     const {
         data: productsData,
         isLoading,
-        isError,
+        isError: productsError,
     } = useQuery(['products', category], () => getProducts(category!));
+
+    if (categoryError || productsError)
+        return (
+            <ErrorPage message="Категория товаров, которую вы ищете, не существует" />
+        );
 
     return (
         <div className="container-xl" style={{ paddingTop: '92px' }}>
@@ -42,7 +49,7 @@ const CatalogPage = () => {
 
             <ProductsList
                 productsData={productsData}
-                isError={isError}
+                isError={productsError}
                 isLoading={isLoading}
             />
         </div>

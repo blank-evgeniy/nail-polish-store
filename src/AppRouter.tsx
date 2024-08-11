@@ -3,6 +3,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
 import AdminPage from './pages/AdminPage';
+import ErrorPage from './pages/ErrorPage';
 const Cart = lazy(() => import('./pages/Cart'));
 const Home = lazy(() => import('./pages/Home'));
 const Categories = lazy(() => import('./pages/Categories'));
@@ -13,7 +14,7 @@ const router = createHashRouter([
     {
         path: '/',
         element: <App />,
-        errorElement: <div>ErrorPage</div>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,

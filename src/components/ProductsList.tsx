@@ -52,14 +52,22 @@ const ProductsList: React.FC<ProductsListProps> = ({
         dispatch(resetFilters());
     }, [location]);
 
+    if (isLoading)
+        return (
+            <div className="row row-gap-3">
+                <ProductCardsSkeleton />
+            </div>
+        );
+
+    if (isError)
+        return (
+            <div className="text-center fs-5">
+                Упс! Произошла непредвиденная ошибка!
+            </div>
+        );
+
     return (
-        <div className="row">
-            {isLoading && <ProductCardsSkeleton />}
-            {isError && (
-                <div className="text-center fs-5">
-                    Произошла непредвиденная ошибка
-                </div>
-            )}
+        <div className="row row-gap-3">
             {filteredProducts.length > 0 ? (
                 filteredProducts
                     .slice(
