@@ -7,11 +7,11 @@ export interface CartState {
 }
 
 const initialState: CartState = {
-    cart: localStorage.getItem('cart')
-        ? JSON.parse(localStorage.getItem('cart')!)
+    cart: sessionStorage.getItem('cart')
+        ? JSON.parse(sessionStorage.getItem('cart')!)
         : [],
-    totalPrice: localStorage.getItem('total-price')
-        ? Number(JSON.parse(localStorage.getItem('total-price')!))
+    totalPrice: sessionStorage.getItem('total-price')
+        ? Number(JSON.parse(sessionStorage.getItem('total-price')!))
         : 0,
 };
 
@@ -32,8 +32,8 @@ export const cartSlice = createSlice({
                 state.cart.push({ id: action.payload.id, amount: 1 });
             }
 
-            localStorage.setItem('cart', JSON.stringify(state.cart));
-            localStorage.setItem(
+            sessionStorage.setItem('cart', JSON.stringify(state.cart));
+            sessionStorage.setItem(
                 'total-price',
                 JSON.stringify(state.totalPrice)
             );
@@ -52,8 +52,8 @@ export const cartSlice = createSlice({
                 state.totalPrice -= action.payload.price;
             }
 
-            localStorage.setItem('cart', JSON.stringify(state.cart));
-            localStorage.setItem(
+            sessionStorage.setItem('cart', JSON.stringify(state.cart));
+            sessionStorage.setItem(
                 'total-price',
                 JSON.stringify(state.totalPrice)
             );
