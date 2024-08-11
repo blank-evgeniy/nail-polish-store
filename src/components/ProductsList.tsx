@@ -9,6 +9,7 @@ import { filterSlice } from '../store/reducers/filterSlice';
 import ProductData from '../types/ProductData';
 import Pagination from './Pagination';
 import ModalProductInfo from './ModalProductInfo';
+import { PRODUCTS_ON_PAGE } from '../consts';
 
 interface ProductsListProps {
     productsData: ProductData[] | undefined;
@@ -16,15 +17,13 @@ interface ProductsListProps {
     isError: boolean;
 }
 
-//самый громозкий компонент, при возможности надо декомпозировать
-//и распределить его функционал
+//самый громоздкий компонент, TODO: при возможности надо декомпозировать
+//и распределить его функционал по нескольким компонентам
 const ProductsList: React.FC<ProductsListProps> = ({
     productsData,
     isError,
     isLoading,
 }) => {
-    //TODO: перенести в отдельный файл с константами
-    const PRODUCTS_ON_PAGE = 12;
     const location = useLocation();
     const [modalProduct, setModalProduct] = useState<ProductData | null>(null);
 

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+//Хук для получения текста из файла вставленного в инпут-поле
+
 const useTextReader = () => {
     const [file, setFile] = useState<File | null | undefined>(null);
     const [fileText, setFileText] = useState<string | null>(null);

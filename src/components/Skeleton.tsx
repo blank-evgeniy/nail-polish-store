@@ -1,5 +1,8 @@
 import { useMediaQuery } from 'react-responsive';
 
+//Большой файл с заглушками для отображения пока грузятся данные
+//TODO: разделить на отдельные файлы
+
 export const CategoryCardSkeleton = () => {
     return (
         <div className="col-xxl-2 col-xl-3 col-sm-4 col-6 d-flex justify-content-center align-items-stretch">

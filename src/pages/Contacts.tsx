@@ -1,5 +1,7 @@
 import Heading from '../components/Heading';
 
+//Простая страница для отображения контактов
+//TODO: выглядит пустовата, в будущем добавить декоративные элементы или др.
 const Contacts = () => {
     return (
         <div className="container-sm" style={{ paddingTop: '92px' }}>

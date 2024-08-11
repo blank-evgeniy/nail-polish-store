@@ -4,8 +4,9 @@ import { getProducts } from '../../api/getProducts';
 import { useState } from 'react';
 import { getDocsQuery } from '../../api/getData';
 import CategoriesData from '../../types/CategoriesData';
+import { INITIAL_CATEGORY } from '../../consts';
 
-const INITIAL_CATEGORY = 'basy';
+//Панель для изменения данных, хранящихся в firestore
 
 const EditPanel = () => {
     const [category, setCategory] = useState<string>(INITIAL_CATEGORY);

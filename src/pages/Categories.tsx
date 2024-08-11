@@ -4,6 +4,10 @@ import Heading from '../components/Heading';
 import { CategoryCardsSkeleton } from '../components/Skeleton';
 import { useQuery } from 'react-query';
 
+//Страница с категориями товаров
+//Данные получаем с firestore, используя React Query
+//TODO: заменить на RTK Query по возможности
+
 interface CategoriesData {
     title: string;
     image: string;

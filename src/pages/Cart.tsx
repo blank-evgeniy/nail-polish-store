@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Heading from '../components/Heading';
 import CartItem from '../components/CartItem';
 
+//Страница корзины товаров
+//Данные получаем из стора
+//TODO: заменить кнопку на ссылку Link со стилем подобным кнопке
+
 const Cart = () => {
     const { cart, totalPrice } = useAppSelector((state) => state.cart);
     const navigate = useNavigate();

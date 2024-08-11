@@ -1,3 +1,5 @@
+//шапка админ панели
+
 const AdminHeader = () => {
     return (
         <header>

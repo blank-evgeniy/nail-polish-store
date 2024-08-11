@@ -1,5 +1,7 @@
 import React from 'react';
 
+//Кастомное оглавление для переиспользования в разных страницах
+
 interface HeadingProps {
     children: string | undefined;
     className?: string;

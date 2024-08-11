@@ -1,6 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import CategoriesList from './CategoriesList';
 
+//Компонент с навигационными ссылка из хедера
+
 const NavLinks = () => {
     const navigate = useNavigate();
 

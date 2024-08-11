@@ -4,6 +4,13 @@ import { filterSlice } from '../store/reducers/filterSlice';
 import { useDebounce } from 'use-debounce';
 import { useLocation } from 'react-router-dom';
 
+//Поле поиска товаров, включает в себя дебаунсинг
+//Используется только локально в категориях(нет общего поиска по всем товарам)
+//Также не делает запросы на firestore, а просто используется для фильтрации
+//уже полученных данных при помощи вспомогательной функции
+//Такой подход выбран для того, чтобы уменьшить количество запросов на firestore,
+//в связи с ограничениями бесплатного тарифа
+
 const SearchInput = () => {
     const location = useLocation();
 

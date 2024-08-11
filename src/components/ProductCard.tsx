@@ -20,7 +20,7 @@ const ProductCard: React.FC<ProductCardproductData> = ({
     //--------------мобильная версия------------------------
     if (isMobile)
         return (
-            <div className="card mb-3">
+            <div className="card">
                 <div className="row align-items-center g-0">
                     <div className="col-3">
                         <img
@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardproductData> = ({
     //--------------компьютерная версия------------------------
     return (
         <div
-            className="card rounded-0 mb-5 p-0 container-fluid"
+            className="card rounded-0 p-0 container-fluid h-100"
             style={{ maxWidth: '200px' }}
         >
             <img
@@ -71,7 +71,7 @@ const ProductCard: React.FC<ProductCardproductData> = ({
             ></img>
             <div className="card-body">
                 <h6 className="card-title">{productData.title}</h6>
-                <p className="card-text">{productData.description}</p>
+                {/* <p className="card-text">{productData.description}</p> */}
             </div>
             <ul
                 className="list-group list-group-flush"

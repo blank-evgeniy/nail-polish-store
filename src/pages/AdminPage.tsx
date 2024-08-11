@@ -4,6 +4,9 @@ import FileInput from '../components/admin/FileInput';
 import LoginForm from '../components/admin/LoginForm';
 import { useAppSelector } from '../hooks/redux';
 
+//Админка с авторизацией
+//Данные админа храним в сторе
+
 const AdminPage = () => {
     const { user } = useAppSelector((state) => state.auth);
 

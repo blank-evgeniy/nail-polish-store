@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import NavLinks from './NavLinks';
 
+//Собственно шапка страницы, верстка и использование
+//Link's для роутинга
+
 const Header = () => {
     return (
         <header>

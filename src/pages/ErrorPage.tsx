@@ -1,5 +1,8 @@
 import React from 'react';
 
+//Страница об ошибке при неправильном url, а также
+//при неправильном запросе на firestore(для страницы "/categories/:category")
+
 interface ErrorPageProps {
     message?: string;
 }

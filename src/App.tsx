@@ -8,6 +8,7 @@ function App() {
         <>
             <Header />
             <main>
+                {/* заглушка при ленивой загрузке страницы */}
                 <Suspense fallback={<Loading />}>
                     <Outlet />
                 </Suspense>

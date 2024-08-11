@@ -2,6 +2,10 @@ import React from 'react';
 import { pushProducts } from '../../api/postData';
 import useJSONReader from '../../hooks/useTextReader';
 
+//Поле для вставки JSON файла
+//TODO: сделать валидацию файла, чтобы быть уверенным
+//что в бд поступают продукты правильного формата
+
 const FileInput = () => {
     const { fileText, setFile } = useJSONReader();
 

@@ -6,8 +6,15 @@
 .btn-secondary:active,
 .btn-secondary:focus,
 .btn-secondary:visited {
+    background-color: rgb(35, 29, 49) !important;
+}
+
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:visited {
     color: #000 !important;
-    background-color: rgb(235, 235, 235) !important;
+    border-color: $danger;
+    background-color: $danger !important;
 }
 
 .btn-default {
@@ -16,4 +23,8 @@
     &:hover {
         scale: 1.1;
     }
+}
+
+button:focus {
+    background-color: inherit !important;
 }

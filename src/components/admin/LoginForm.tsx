@@ -2,6 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { UserType } from '../../store/reducers/authSlice';
 
+//Форма для простой аутентификации админа
+//с помощью созданного аккаунта в firestore
+//возможности регистрации нет, посколу в данном
+//проекте это не имеет смысла
+
 const LoginForm = () => {
     const { login, error, loading } = useAuth();
 

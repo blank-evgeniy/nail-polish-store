@@ -6,6 +6,11 @@ export interface CartState {
     totalPrice: number;
 }
 
+//TODO: в будущем можно заменить sessionStorage на local, но
+//для этого нужен другой подход подсчеты общей стоимости корзины
+//проблема в том, что при обновлении цены товара в бд, она не
+//меняется в корзине, а при удалении этого товара вычетается новая цена
+
 const initialState: CartState = {
     cart: sessionStorage.getItem('cart')
         ? JSON.parse(sessionStorage.getItem('cart')!)

@@ -5,6 +5,10 @@ import { useQuery } from 'react-query';
 import { getDocQuery } from '../api/getData';
 import { CartItemSkeleton } from './Skeleton';
 
+//Карточка продукта корзины
+//Данные получаем с firestore, используя React Query
+//TODO: заменить на RTK Query по возможности
+
 interface CartItemProps {
     product: CartProductData;
 }

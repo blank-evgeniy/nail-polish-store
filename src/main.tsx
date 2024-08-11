@@ -7,6 +7,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
+//Здесь приложение обернуто во все нужные провайдеры
+//TODO: заменить React Query на RTK Query
+
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {

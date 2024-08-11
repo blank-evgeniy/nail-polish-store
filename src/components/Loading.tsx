@@ -1,12 +1,8 @@
+//Спиннер для ленивой загрузки
+
 const Loading = () => {
     return (
-        <div
-            style={{
-                position: 'absolute',
-                top: 'calc(50% - 22px)',
-                left: 'calc(50% - 22px)',
-            }}
-        >
+        <div className="position-absolute top-50 start-50 translate-middle">
             <div className="m-1 spinner-border text-primary" role="status">
                 <span className="visually-hidden">Loading...</span>
             </div>

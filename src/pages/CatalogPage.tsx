@@ -8,6 +8,10 @@ import ProductsList from '../components/ProductsList';
 import Heading from '../components/Heading';
 import ErrorPage from './ErrorPage';
 
+//Страница с товарами
+//Данные получаем с firestore, используя React Query
+//TODO: заменить на RTK Query по возможности
+
 const CatalogPage = () => {
     const { category } = useParams<string>();
 

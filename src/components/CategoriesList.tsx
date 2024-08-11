@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import CategoriesData from '../types/CategoriesData';
 import { getDocsQuery } from '../api/getData';
 
+//Список категорий
+//Данные получаем с firestore, используя React Query
+//TODO: заменить на RTK Query по возможности
+
 interface CategoriesListProps {
     onLinkClick: (path: string) => void;
 }

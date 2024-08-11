@@ -2,6 +2,8 @@ import React from 'react';
 import ProductData from '../types/ProductData';
 import ToCartButton from './ToCartButton';
 
+//компонент для модалки, принимающей данные о товаре
+
 interface ModalProductInfoproductData {
     productData: ProductData | null;
 }

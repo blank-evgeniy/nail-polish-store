@@ -2,6 +2,10 @@ import React from 'react';
 import { useAppDispatch } from '../hooks/redux';
 import { filterSlice } from '../store/reducers/filterSlice';
 
+//Пагинация страницы, так как в моем случае она используется
+//только на странице с товарами, то я оставил взаймодействие
+//со стором в этом компоненте, чтобы не перегружать родительский
+
 interface PaginationProps {
     pagesCount: number;
     currentPage: number;

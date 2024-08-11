@@ -5,6 +5,8 @@ import getUniqueValues from '../auxiliary/getUniqueValues';
 import { filterSlice } from '../store/reducers/filterSlice';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 
+//Форма с селекторами для фильтрации товаров
+
 interface SelectorsFormProps {
     data: ProductData[] | undefined;
 }

@@ -3,6 +3,9 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { cartSlice } from '../store/reducers/cartSlice';
 import ProductData from '../types/ProductData';
 
+//Кастомная кнопка для добавления товаров в корзину
+//включает в себя не только стили, но и взаимодействие со стором
+
 const ToCartButton: React.FC<ProductData> = (props) => {
     const dispatch = useAppDispatch();
     const { addProductToBasket, removeProductFromBasket } = cartSlice.actions;

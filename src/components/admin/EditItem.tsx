@@ -3,6 +3,11 @@ import ProductData from '../../types/ProductData';
 import { pushProduct } from '../../api/postData';
 import deleteData from '../../api/deleteData';
 
+//Форма изменения продукта в firestore с возможностью
+//удаления, изменения цены и наличия
+//Перенагруженный компонент, но весь функционал тесно связан
+//декомпозиция под вопросом
+
 interface EditItemProps {
     item: ProductData;
 }
